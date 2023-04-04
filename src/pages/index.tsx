@@ -35,27 +35,27 @@ const Home = () => {
             </div>
             <div className='social-media flex gap-x-9'>
               <div>
-                <Link href="https://www.instagram.com/rakharan/" target="_blank">
+                <Link href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                   <RxInstagramLogo />
                 </Link>
               </div>
               <div>
-                <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank">
+                <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                   <RxLinkedinLogo />
                 </Link>
               </div>
               <div>
-                <Link href="mailto:randhikatamar@gmail.com" target="_blank">
+                <Link href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                   <RxEnvelopeClosed />
                 </Link>
               </div>
               <div>
-                <Link href="https://medium.com/@randhikatamar" target="_blank">
+                <Link href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                   <AiOutlineMedium />
                 </Link>
               </div>
               <div>
-                <Link href="https://github.com/rakharan" target="_blank">
+                <Link href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                   <AiOutlineGithub />
                 </Link>
               </div>
