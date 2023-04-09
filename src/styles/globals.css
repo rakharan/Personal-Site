@@ -10,7 +10,7 @@
 }
 
 .introduction {
-    background-image: url('/bg.jpeg');
+    background-image: url('/bg/bg.jpeg');
     background-repeat: no-repeat;
     /* Set a specific height */
     min-height: 500px;

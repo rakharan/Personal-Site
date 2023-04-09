@@ -1,5 +1,5 @@
 import React from 'react'
-import cv from "/public/CV.png"
+import cv from "/public/CV.webp"
 import Image from 'next/image'
 import Layout from '@/components/layout'
 import Link from 'next/link'
