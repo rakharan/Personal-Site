@@ -55,7 +55,7 @@ export default function MainContent() {
                             handleMouseLeave();
                         }}>
                         <Link href={project.href} target="_blank">
-                            <div className={`overlay absolute bg-white/70 w-full h-full p-4 ${isHovered ? `bg-white/0` : ``}`}>
+                            <div className={`overlay absolute  w-full h-full p-4 ${isHovered ? `bg-transparent` : `bg-white/70`} transition-all duration-500`}>
                                 <div className='project-year absolute'>
                                     <span className={`text-base md:text-2xl ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>2023</span>
                                 </div>
