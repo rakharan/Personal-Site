@@ -20,7 +20,7 @@ const Home = () => {
         <main className='min-h-screen'>
           <div className='mb-[200px] md:mb-[300px]'>
             <div className='introduction flex flex-col justify-center  items-center'>
-              <div className='name flex justify-center items-center mt-[74px] md:text-[58px] md:leading-[75px] text-4xl'>
+              <div className='name flex justify-center items-center mt-[74px] md:text-[58px] md:leading-[75px] text-4xl' data-aos="zoom-in-up">
                 <h1>Rakha
                   <br /> Randhikatama
                 </h1>
