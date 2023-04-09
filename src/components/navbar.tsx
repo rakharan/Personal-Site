@@ -6,7 +6,7 @@ export default function Navbar() {
         <>
             <header>
                 <nav>
-                    <div className='h-[114px]  w-full flex justify-between px-14'>
+                    <div className='h-[114px] px-2 w-full flex justify-between md:px-14'>
                         <div className='left-navbar  flex items-center'>
                             <Link href="/">
                                 <h1 className='text-5xl'>R<span className='font-bold'>.</span></h1>

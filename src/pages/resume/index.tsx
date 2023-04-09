@@ -8,7 +8,7 @@ export default function Resume() {
 
         <>
             <Layout title='Resume | Rakha Randhikatama'>
-                <main>
+                <main className='min-h-screen'>
                     <div className='flex justify-center mt-[75px] '>
                         <div className='flex justify-center w-[919px]'>
                             <Image src={cv} alt='cv' />

@@ -8,3 +8,16 @@
     margin: 0;
     user-select: none;
 }
+
+.introduction {
+    background-image: url('/bg.jpeg');
+    background-repeat: no-repeat;
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

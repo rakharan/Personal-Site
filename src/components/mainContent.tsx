@@ -1,89 +1,85 @@
-import Image from 'next/image'
-import React from 'react'
+import Image, { StaticImageData } from 'next/image'
+import React, { useState } from 'react'
 import waysbeans from "/public/projects/waysbeans.webp"
 import landtick from "/public/projects/landtick.jpg"
 import Link from 'next/link'
-import { AiOutlineGithub } from "react-icons/ai"
-import { FaGlobeAsia } from "react-icons/fa";
 
+interface ProjectList {
+    title: string;
+    year: number;
+    img: StaticImageData;
+    desc: string;
+    href: string;
+    techStacks: Array<string>
+}
+
+const projectList: Array<ProjectList> = [
+    {
+        title: 'Waysbeans',
+        img: waysbeans,
+        year: 2023,
+        href: 'https://waysbeans-teal.vercel.app',
+        desc: 'An online coffee shop for coffee addicts all around the world.',
+        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
+    },
+    {
+        title: 'LandTick',
+        img: landtick,
+        year: 2023,
+        href: 'https://final-task-pi.vercel.app/',
+        desc: 'An online railway ticket booking application.',
+        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
+    },
+]
 export default function MainContent() {
+
+    const [hoveredProjectIndex, setHoveredProjectIndex] = useState(-1);
+
+    const handleMouseEnter = (index: number) => {
+        setHoveredProjectIndex(index);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredProjectIndex(-1);
+    };
+
     return (
-        <div>
-            <div className='flex justify-center'>
-                <span className='text-[50px] border-b-4 hover:border-transparent transition-all duration-300 border-black'>Portfolio</span>
-
-            </div>
-            <div className='flex justify-center items-center min-h-screen gap-x-4'>
-                <div className='left-content flex flex-col gap-y-4'>
-                    <p className=' font-sans text-2xl font-semibold w-[400px] hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#FFF1A5] hover:via-[#C87D4C] hover:to-[#533636] transition-all duration-700 border-b-2 border-dotted py-4'>
-                        An online marketplace <br />
-                        for coffee enthusiasts
-                        to discover  and purchase <br />
-                        premium coffee from around the globe
-                    </p>
-                    <h1 className='text-lg leading-[28px] font-bold'>Waysbeans</h1>
-                    <div className='flex gap-x-5'>
-                        <span className='text-[13px] font-bold'>2023</span>
-                        <div className='flex gap-x-4'>
-                            <Link href="https://github.com/rakharan/Waysbeans" target='_blank' className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                                <AiOutlineGithub />
-                            </Link>
-                            <Link href="https://waysbeans-teal.vercel.app" target='_blank' className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                                <FaGlobeAsia />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className='right-content w-[620px] flex items-center justify-center cursor-pointer shadow-xl rounded-xl overflow-hidden'>
-                    <div className=''>
-                        <Link href="https://waysbeans-teal.vercel.app">
-                            <Image
-                                src={waysbeans}
-                                alt="waysbeans thumbnail"
-                                placeholder="blur"
-                                className=' object-contain hover:scale-110 transition-all duration-300'
-                            />
-                        </Link>
-
-                    </div>
-                </div>
-            </div >
-
-            <div className='flex justify-center items-center min-h-screen gap-x-4'>
-                <div className='left-content flex flex-col gap-y-4'>
-                    <p className=' font-sans text-2xl font-semibold w-[400px] hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#EC7AB7] hover:to-[#EC7A7A] transition-all duration-700 border-b-2 border-dotted py-4'>
-                        A web-based platform <br />
-                        that simplifies the process of booking <br />
-                        and managing train tickets for users.
-                    </p>
-                    <h1 className='text-lg leading-[28px] font-bold'>LandTick</h1>
-                    <div className='flex gap-x-5'>
-                        <span className='text-[13px] font-bold'>2023</span>
-                        <div className='flex gap-x-4'>
-                            <Link href="https://github.com/rakharan/Final-Task" target='_blank' className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                                <AiOutlineGithub />
-                            </Link>
-                            <Link href="https://final-task-pi.vercel.app/" target='_blank' className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                                <FaGlobeAsia />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className='right-content w-[620px] flex items-center justify-center cursor-pointer shadow-xl rounded-xl overflow-hidden'>
-                    <div className=''>
-                        <Link href="https://final-task-pi.vercel.app/">
-                            <Image
-                                src={landtick}
-                                alt="waysbeans thumbnail"
-                                placeholder="blur"
-                                className=' object-contain hover:scale-110 transition-all duration-300'
-                            />
+        <div className='grid gap-4 grid-cols-1 md:grid-cols-2'>
+            {projectList?.map((project, index) => {
+                const isHovered = hoveredProjectIndex === index;
+                return (
+                    <div key={index} className=' shadow-2xl relative rounded-xl overflow-hidden cursor-pointer md:h-[22vw] h-[220px]' onMouseEnter={() => {
+                        handleMouseEnter(index);
+                    }}
+                        onMouseLeave={() => {
+                            handleMouseLeave();
+                        }}>
+                        <Link href={project.href} target="_blank">
+                            <div className={`overlay absolute bg-white/70 w-full h-full p-4 ${isHovered ? `bg-white/0` : ``}`}>
+                                <div className='project-year absolute'>
+                                    <span className={`text-base md:text-2xl ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>2023</span>
+                                </div>
+                                <div className='overlay-content flex justify-center items-center w-full h-full'>
+                                    <div className={`project-detail flex flex-col justify-center items-center text-center lg:gap-y-4 ${isHovered ? `hidden` : ``}`}>
+                                        <h1 className='font-bold text-2xl lg:text-5xl'>{project.title}</h1>
+                                        <p className='text-base md:text-xl lg:text-2xl'>{project.desc}</p>
+                                        <div className='tech-stack flex justify-center gap-x-2 mt-5 gap-y-2 items-center flex-wrap'>
+                                            {project.techStacks.map((stack, index) => {
+                                                return (
+                                                    <span key={index} className='bg-black p-2 text-white text-xs rounded-md md:text-base lg:text-lg'>{stack}</span>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='w-full h-full'>
+                                <Image src={project.img} alt={project.title} />
+                            </div>
                         </Link>
                     </div>
-                </div>
-            </div>
-
+                )
+            })}
         </div>
-
     )
 }

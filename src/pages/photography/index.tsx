@@ -5,7 +5,7 @@ export default function Photography() {
     return (
         <>
             <Layout title='Photography | Rakha Randhikatama'>
-                <main>
+                <main className='min-h-screen'>
 
                 </main>
             </Layout>
