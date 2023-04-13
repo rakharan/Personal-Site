@@ -26,7 +26,7 @@ const Home = () => {
                 </h1>
               </div>
               <div className='short-brief w-[338px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
-                <p className={`${myFont.className} text-[13px] leading-[26px] text-center italic md:text-xl`}>
+                <p className={`${myFont.className} text-[13px] leading-[26px] text-center italic md:text-xl font-black`}>
                   Hello there 👋 <br />
                   I am a Full-stack web developer <br />
                   currently focusing on the front-end development, <br />
@@ -36,27 +36,27 @@ const Home = () => {
               </div>
               <div className='social-media flex gap-x-9'>
                 <div>
-                  <Link href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                  <Link href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxInstagramLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                  <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxLinkedinLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                  <Link href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxEnvelopeClosed size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                  <Link href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineMedium size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                  <Link href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineGithub size={`1.5em`} />
                   </Link>
                 </div>
