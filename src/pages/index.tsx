@@ -36,27 +36,27 @@ const Home = () => {
               </div>
               <div className='social-media flex gap-x-9'>
                 <div>
-                  <Link href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's instagram" href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxInstagramLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's linkedin" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxLinkedinLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's email" href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxEnvelopeClosed size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's medium" href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineMedium size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's github" href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineGithub size={`1.5em`} />
                   </Link>
                 </div>

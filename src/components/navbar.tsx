@@ -14,12 +14,16 @@ export default function Navbar() {
                         </div>
                         <div className='right-navbar  flex items-center'>
                             <ul className='flex gap-x-[30px]'>
-                                <Link href="/photography">
-                                    <li className=' border-t-4 border-transparent hover:border-black transition-all duration-300 text-base p-2 leading-[50px] text-[12px]'>PHOTOGRAPHY</li>
-                                </Link>
-                                <Link href="/resume">
-                                    <li className=' border-t-4 border-transparent hover:border-black transition-all duration-300 text-base p-2 leading-[50px] text-[12px]'>RESUME</li>
-                                </Link>
+                                <li>
+                                    <Link href="/photography">
+                                        <span className=' border-t-4 border-transparent hover:border-black transition-all duration-300 text-base p-2 leading-[50px] text-[12px]'>PHOTOGRAPHY</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/resume">
+                                        <span className=' border-t-4 border-transparent hover:border-black transition-all duration-300 text-base p-2 leading-[50px] text-[12px]'>RESUME</span>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
