@@ -6,10 +6,12 @@ const myFont = localFont({ src: './Avenir-Regular.woff2' })
 import { RxInstagramLogo, RxLinkedinLogo, RxEnvelopeClosed, RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineMedium, AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link'
+import thumbnail from "/public/icons/thumbnail.webp"
 // import MainContent from '@/components/mainContent'
 import dynamic from 'next/dynamic'
 const MainContent = dynamic(() => import('../components/mainContent'))
 const Home = () => {
+  console.log(thumbnail)
   return (
     <>
       <Layout title='Home | Rakha Randhikatama'>
@@ -20,14 +22,14 @@ const Home = () => {
           <meta property="og:url" content="https://sagameda.com" />
           <meta property="og:type" content="website" />
           <meta property="og:description" content="Personal Site of Rakha Randhikatama, a paassionate junior front end developer." />
-          <meta property="og:image" content="/public/icons/thumbnail.webp" />
+          <meta property="og:image" content={thumbnail.src} />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="sagameda.com" />
           <meta property="twitter:url" content="https://sagameda.com" />
           <meta name="twitter:title" content="Home | Rakha Randhikatama" />
           <meta name="twitter:description" content="Personal Site of Rakha Randhikatama, a paassionate junior front end developer." />
-          <meta name="twitter:image" content="/public/icons/thumbnail.webp" />
+          <meta name="twitter:image" content={thumbnail.src} />
 
         </Head>
         <main className='min-h-screen'>
