@@ -73,8 +73,8 @@ export default function MainContent() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='w-full h-full'>
-                                <Image src={project.img} alt={project.title} />
+                            <div>
+                                <Image placeholder='blur' width={1200} height={500} src={project.img} alt={project.title} />
                             </div>
                         </Link>
                     </div>
