@@ -14,8 +14,21 @@ const Home = () => {
     <>
       <Layout title='Home | Rakha Randhikatama'>
         <Head>
+
           <meta name="description" content="Personal Site of Rakha Randhikatama, a paassionate junior front end developer." />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+          <meta property="og:url" content="https://sagameda.com" />
+          <meta property="og:type" content="website" />
+          <meta property="og:description" content="Personal Site of Rakha Randhikatama, a paassionate junior front end developer." />
+          <meta property="og:image" content="/public/icons/thumbnail.webp" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="sagameda.com" />
+          <meta property="twitter:url" content="https://sagameda.com" />
+          <meta name="twitter:title" content="Home | Rakha Randhikatama" />
+          <meta name="twitter:description" content="Personal Site of Rakha Randhikatama, a paassionate junior front end developer." />
+          <meta name="twitter:image" content="/public/icons/thumbnail.webp" />
+
         </Head>
         <main className='min-h-screen'>
           <div className='mb-[200px] md:mb-[300px]' data-aos="fade-in" data-aos-easing="ease-in-out">
