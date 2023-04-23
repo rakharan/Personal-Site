@@ -38,8 +38,8 @@ const Home = () => {
                   <br /> Randhikatama
                 </h1>
               </div>
-              <div className='short-brief w-[338px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
-                <p className={`${myFont.className} text-[13px] leading-[26px] text-center italic md:text-xl font-black`}>
+              <div className='short-brief w-[300px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
+                <p className={`${myFont.className} text-base leading-[26px] text-center italic md:text-xl font-black`}>
                   Hello there 👋 <br />
                   I am a Full-stack web developer <br />
                   currently focusing on the front-end development, <br />

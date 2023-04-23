@@ -5,11 +5,11 @@ export default function Navbar() {
     return (
         <>
             <header>
-                <nav>
-                    <div className='h-[114px] px-5 w-full flex justify-between md:px-14'>
+                <nav className='px-5 md:px-14'>
+                    <div className='h-[114px]  flex justify-between gap-x-5'>
                         <div className='left-navbar  flex items-center'>
                             <Link href="/">
-                                <h1 className='text-3xl md:text-5xl'>R<span className='font-bold'>.</span></h1>
+                                <h1 className='text-2xl md:text-5xl'>R<span className='font-bold'>.</span></h1>
                             </Link>
                         </div>
                         <div className='right-navbar  flex items-center'>
