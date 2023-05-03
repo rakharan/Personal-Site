@@ -4,6 +4,10 @@ import { RxInstagramLogo, RxLinkedinLogo } from "react-icons/rx";
 import { AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link';
 
+
+setInterval(() => {
+    document.getElementById("clock").innerHTML = `${moment().format('LTS')}`;
+}, 1000)
 export default function Footer() {
     return (
         <div className='w-full flex justify-center  items-center px-10 md:px-20 lg:px-24'>
@@ -15,7 +19,7 @@ export default function Footer() {
                     </div>
                     <div className='local-time flex flex-col gap-y-2'>
                         <h1 className='opacity-50 font-semibold'>Local Time</h1>
-                        <h2>{moment().format('LT')}</h2>
+                        <h2 id='clock'></h2>
                     </div>
                 </div>
 
