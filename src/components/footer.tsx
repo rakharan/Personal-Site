@@ -4,10 +4,12 @@ import { RxInstagramLogo, RxLinkedinLogo } from "react-icons/rx";
 import { AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link';
 
-
 setInterval(() => {
-    document.getElementById("clock").innerHTML = `${moment().format('LTS')}`;
-}, 1000)
+    const clockElement = document.getElementById("clock");
+    if (clockElement) {
+        clockElement.innerHTML = `${moment().format('LTS')}`;
+    }
+}, 1000);
 export default function Footer() {
     return (
         <div className='w-full flex justify-center  items-center px-10 md:px-20 lg:px-24'>
