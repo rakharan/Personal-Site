@@ -1,16 +1,21 @@
 import moment from 'moment'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RxInstagramLogo, RxLinkedinLogo } from "react-icons/rx";
 import { AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link';
 
-setInterval(() => {
-    const clockElement = document.getElementById("clock");
-    if (clockElement) {
-        clockElement.innerHTML = `${moment().format('LTS')}`;
-    }
-}, 1000);
+
 export default function Footer() {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const clockElement = document.getElementById("clock");
+            if (clockElement) {
+                clockElement.innerHTML = `${moment().format('LTS')}`;
+            }
+        }, 1000);
+    
+        return () => clearInterval(interval); // Cleanup the interval on component unmount
+    }, []);
     return (
         <div className='w-full flex justify-center  items-center px-10 md:px-20 lg:px-24'>
             <div className='footer-content w-full border-t-4 py-8 items-center font-bold text-lg flex flex-col md:flex-row md:justify-between '>
