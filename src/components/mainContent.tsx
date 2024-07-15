@@ -2,6 +2,7 @@ import Image, { StaticImageData } from 'next/image'
 import React, { useState } from 'react'
 import waysbeans from "/public/projects/waysbeans.webp"
 import landtick from "/public/projects/landtick.webp"
+import tokopaedi from "/public/projects/tokopaedi.webp"
 import Link from 'next/link'
 
 interface ProjectList {
@@ -30,6 +31,14 @@ const projectList: Array<ProjectList> = [
         desc: 'An online railway ticket booking application.',
         techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
     },
+    {
+        title: 'Tokopaedi',
+        img: tokopaedi,
+        year: 2024,
+        href: 'https://github.com/RakhaTF/Tokopaedi',
+        desc: 'An E-commerce API integrated with midtrans and rajaongkir.',
+        techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'Typescript']
+    },
 ]
 export default function MainContent() {
 
@@ -57,7 +66,7 @@ export default function MainContent() {
                         <Link href={project.href} target="_blank">
                             <div className={`overlay absolute  w-full h-full p-4 ${isHovered ? `bg-transparent` : `bg-white/70`} transition-all duration-500`}>
                                 <div className='project-year absolute'>
-                                    <span className={`text-base md:text-xl font-semibold ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>2023</span>
+                                    <span className={`text-base md:text-xl font-semibold ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>{project.year}</span>
                                 </div>
                                 <div className='overlay-content flex justify-center items-center w-full h-full'>
                                     <div className={`project-detail flex flex-col justify-center items-center text-center lg:gap-y-4 ${isHovered ? `hidden` : ``}`}>
@@ -74,7 +83,7 @@ export default function MainContent() {
                                 </div>
                             </div>
                             <div>
-                                <Image placeholder='blur' width={1200} height={500} src={project.img} alt={project.title} />
+                                <Image placeholder='blur' width={1200} height={500} src={project.img} alt={project.title}/>
                             </div>
                         </Link>
                     </div>
