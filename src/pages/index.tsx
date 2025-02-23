@@ -15,18 +15,18 @@ const Home = () => {
       <Layout title='Home | Rakha Randhikatama'>
         <Head>
 
-          <meta name="description" content="Personal Site of Rakha Randhikatama, a passionate junior front end developer." />
+          <meta name="description" content="Personal Site of Rakha Randhikatama, a passionate junior back end developer." />
 
           <meta property="og:url" content="https://sagameda.com" />
           <meta property="og:type" content="website" />
-          <meta property="og:description" content="Personal Site of Rakha Randhikatama, a passionate junior front end developer." />
+          <meta property="og:description" content="Personal Site of Rakha Randhikatama, a passionate junior back end developer." />
           <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="sagameda.com" />
           <meta property="twitter:url" content="https://sagameda.com" />
           <meta name="twitter:title" content="Home | Rakha Randhikatama" />
-          <meta name="twitter:description" content="Personal Site of Rakha Randhikatama, a passionate junior front end developer." />
+          <meta name="twitter:description" content="Personal Site of Rakha Randhikatama, a passionate junior back end developer." />
           <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
 
         </Head>
