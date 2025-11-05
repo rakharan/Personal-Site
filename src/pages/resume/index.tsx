@@ -1,5 +1,5 @@
 import React from 'react'
-import cv from "/public/CV.webp"
+import CV from "@/assets/CV/CV.webp"
 import Image from 'next/image'
 import Layout from '@/components/layout'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ export default function Resume() {
                 <main className='min-h-screen'>
                     <div className='flex justify-center mt-[75px] '>
                         <div className='flex justify-center w-[919px]'>
-                            <Image src={cv} alt='cv' />
+                            <Image src={CV} alt='cv' />
                         </div>
                     </div>
                     <div className='flex justify-center mb-[50px] '>

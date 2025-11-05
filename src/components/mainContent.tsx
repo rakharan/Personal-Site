@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
 import React, { useState } from 'react'
-import waysbeans from "/public/projects/waysbeans.webp"
-import landtick from "/public/projects/landtick.webp"
-import tokopaedi from "/public/projects/tokopaedi.webp"
+import landtick from "@/assets/projects/landtick.webp"
+import waysbeans from "@/assets/projects/waysbeans.webp"
+import tokopaedi from "@/assets/projects/tokopaedi.webp"
 import Link from 'next/link'
 
 interface ProjectList {

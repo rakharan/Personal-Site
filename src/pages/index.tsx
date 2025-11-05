@@ -1,6 +1,5 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
-import React from 'react'
 import localFont from 'next/font/local'
 const myFont = localFont({ src: './Avenir-Regular.woff2' })
 import { RxInstagramLogo, RxLinkedinLogo, RxEnvelopeClosed, } from "react-icons/rx";
@@ -41,10 +40,10 @@ const Home = () => {
               <div className='short-brief w-[300px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
                 <p className={`${myFont.className} text-base leading-[26px] text-center italic md:text-xl font-black`}>
                   Hello there 👋 <br />
-                  I am a Full-stack web developer <br />
-                  currently focusing on the front-end development, <br />
+                  I am a Back-End developer <br />
                   amateur photographer and a stargazer <br />
-                  I have no prior experience, but I look forward to working with you soon!
+                  Two years building and maintaining backend systems  
+                  now also handling parts of DevOps and infrastructure work
                 </p>
               </div>
               <div className='social-media flex gap-x-9'>
