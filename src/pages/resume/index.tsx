@@ -15,7 +15,7 @@ export default function Resume() {
                         </div>
                     </div>
                     <div className='flex justify-center mb-[50px] '>
-                        <Link href="https://docs.google.com/document/d/1mol7fB3q9v5ncAGM6a5VjeMcFi0eFMDo/edit?usp=share_link&ouid=109879742821620154344&rtpof=true&sd=true" target='_blank'>
+                        <Link href="https://www.cake.me/pdf/s--W1_u4iQFTH3vK0PAaUcZsQ--/oDE015.pdf" target='_blank'>
                             <span className='text-white bg-black p-2 px-4 rounded-full hover:text-black hover:bg-white hover:border-2 transition-all duration-500 antialiased text-lg'>
                                 Download Resume
                             </span>
