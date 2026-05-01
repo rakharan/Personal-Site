@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head >
-        <link rel="shortcut icon" href="/icons/favicon-32x32.png" type="image/x-icon" />
+        <link rel="icon" href="/icons/favicon-32x32.png" type="image/png" />
       </Head>
       <body className='antialiased'>
         <Main />

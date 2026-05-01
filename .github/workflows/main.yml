@@ -1,32 +1,36 @@
 name: Deploy website on push
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
       - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   web-deploy:
     name: Deploy
-
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    #Steps represent a sequence pf tasks that will be executed as part of the job
     steps:
       - name: Get latest code
+        uses: actions/checkout@v4
 
-        # Checks-out your repository under $GITHUB_WORKSPACE< so your job can access it
-        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
           server: ftp.sagameda.com
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
+          local-dir: out/
           server-dir: /
