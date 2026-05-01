@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import React from 'react'
 
 export default function Navbar() {
     return (
-        <>
-            <header>
+        <header>
                 <nav className='px-5 md:px-14'>
                     <div className='h-[114px]  flex justify-between gap-x-5'>
                         <div className='left-navbar  flex items-center'>
@@ -29,6 +27,5 @@ export default function Navbar() {
                     </div>
                 </nav>
             </header>
-        </>
     )
 }
