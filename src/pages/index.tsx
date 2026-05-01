@@ -5,13 +5,11 @@ const myFont = localFont({ src: './Avenir-Regular.woff2' })
 import { RxInstagramLogo, RxLinkedinLogo, RxEnvelopeClosed, } from "react-icons/rx";
 import { AiOutlineMedium, AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link'
-// import MainContent from '@/components/mainContent'
 import dynamic from 'next/dynamic'
-const MainContent = dynamic(() => import('../components/mainContent'))
+const MainContent = dynamic(() => import('../components/MainContent'))
 const Home = () => {
   return (
-    <>
-      <Layout title='Home | Rakha Randhikatama'>
+    <Layout title='Home | Rakha Randhikatama'>
         <Head>
 
           <meta name="description" content="Personal Site of Rakha Randhikatama, a passionate junior back end developer." />
@@ -48,27 +46,27 @@ const Home = () => {
               </div>
               <div className='social-media flex gap-x-9'>
                 <div>
-                  <Link aria-label="Rakha's instagram" href="https://www.instagram.com/rakharan/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's instagram" href="https://www.instagram.com/rakharan/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxInstagramLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link aria-label="Rakha's linkedin" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's linkedin" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxLinkedinLogo size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link aria-label="Rakha's email" href="mailto:randhikatamar@gmail.com" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's email" href="mailto:randhikatamar@gmail.com" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <RxEnvelopeClosed size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link aria-label="Rakha's medium" href="https://medium.com/@randhikatamar" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's medium" href="https://medium.com/@randhikatamar" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineMedium size={`1.5em`} />
                   </Link>
                 </div>
                 <div>
-                  <Link aria-label="Rakha's github" href="https://github.com/rakharan" target="_blank" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
+                  <Link aria-label="Rakha's github" href="https://github.com/rakharan" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
                     <AiOutlineGithub size={`1.5em`} />
                   </Link>
                 </div>
@@ -84,7 +82,6 @@ const Home = () => {
           </div>
         </main>
       </Layout>
-    </>
   )
 }
 

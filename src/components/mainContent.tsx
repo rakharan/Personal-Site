@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import landtick from "@/assets/projects/landtick.webp"
 import waysbeans from "@/assets/projects/waysbeans.webp"
 import tokopaedi from "@/assets/projects/tokopaedi.webp"
@@ -54,16 +54,16 @@ export default function MainContent() {
 
     return (
         <div className='grid gap-4 grid-cols-1 md:grid-cols-2'>
-            {projectList?.map((project, index) => {
+            {projectList.map((project, index) => {
                 const isHovered = hoveredProjectIndex === index;
                 return (
-                    <div key={index} className=' shadow-2xl relative rounded-xl overflow-hidden cursor-pointer md:h-[22vw] h-[220px]' onMouseEnter={() => {
+                    <div key={project.title} className=' shadow-2xl relative rounded-xl overflow-hidden cursor-pointer md:h-[22vw] h-[220px]' onMouseEnter={() => {
                         handleMouseEnter(index);
                     }}
                         onMouseLeave={() => {
                             handleMouseLeave();
                         }}>
-                        <Link href={project.href} target="_blank">
+                            <Link href={project.href} target="_blank" rel="noopener noreferrer">
                             <div className={`overlay absolute  w-full h-full p-4 ${isHovered ? `bg-transparent` : `bg-white/70`} transition-all duration-500`}>
                                 <div className='project-year absolute'>
                                     <span className={`text-base md:text-xl font-semibold ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>{project.year}</span>
@@ -75,7 +75,7 @@ export default function MainContent() {
                                         <div className='tech-stack flex justify-center gap-x-2 mt-5 gap-y-2 items-center flex-wrap'>
                                             {project.techStacks.map((stack, index) => {
                                                 return (
-                                                    <span key={index} className='bg-black p-2 text-white text-xs rounded-md md:text-base'>{stack}</span>
+                                                    <span key={stack} className='bg-black p-2 text-white text-xs rounded-md md:text-base'>{stack}</span>
                                                 )
                                             })}
                                         </div>
@@ -83,7 +83,7 @@ export default function MainContent() {
                                 </div>
                             </div>
                             <div>
-                                <Image placeholder='blur' width={1200} height={500} src={project.img} alt={project.title}/>
+                                <Image placeholder='blur' width={1200} height={500} sizes="(max-width: 768px) 100vw, 50vw" src={project.img} alt={project.title}/>
                             </div>
                         </Link>
                     </div>
