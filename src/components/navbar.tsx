@@ -13,6 +13,11 @@ export default function Navbar() {
                         <div className='right-navbar  flex items-center'>
                             <ul className='flex gap-x-[30px]'>
                                 <li>
+                                    <Link href="/blog">
+                                        <span className=' border-t-4 border-transparent hover:border-black transition-all duration-300 p-2 leading-[50px] text-sm md:text-lg'>BLOG</span>
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/photography">
                                         <span className=' border-t-4 border-transparent hover:border-black transition-all duration-300 p-2 leading-[50px] text-sm md:text-lg'>PHOTOGRAPHY</span>
                                     </Link>
