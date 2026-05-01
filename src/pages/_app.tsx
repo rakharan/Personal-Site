@@ -5,6 +5,7 @@ const myFont = localFont({ src: './pala.ttf' })
 import { useEffect } from "react";
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import { Analytics } from '@vercel/analytics/react';
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init({
@@ -13,8 +14,8 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
   return (
     <main className={myFont.className}>
-
       <Component {...pageProps} />
+      <Analytics />
     </main >
   )
 }
