@@ -45,6 +45,7 @@ export default function Photography() {
             }}
             spacing={16}
             onClick={({ index }) => setIndex(index)}
+
           />
         </div>
         <Lightbox
