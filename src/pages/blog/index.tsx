@@ -11,7 +11,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
     <Layout title='Blog | Rakha Randhikatama'>
       <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <div className='mb-14 text-center lg:text-left' data-aos="fade-up">
-          <h1 className='opacity-50 font-semibold tracking-[.5em] text-lg'>WRITINGS</h1>
+          <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>WRITINGS</p>
           <h1 className='font-bold text-3xl lg:text-[40px]'>BLOG</h1>
         </div>
         {posts.length === 0 ? (

@@ -1,11 +1,12 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import localFont from 'next/font/local'
-const myFont = localFont({ src: './Avenir-Regular.woff2' })
 import { RxInstagramLogo, RxLinkedinLogo, RxEnvelopeClosed, } from "react-icons/rx";
 import { AiOutlineMedium, AiOutlineGithub } from "react-icons/ai";
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+
+const myFont = localFont({ src: './Avenir-Regular.woff2' })
 const MainContent = dynamic(() => import('../components/MainContent'))
 const Home = () => {
   return (
@@ -75,8 +76,8 @@ const Home = () => {
           </div>
           <div className='portfolio-section min-h-screen w-full px-[30px] lg:px-[10vw] mt-[60px] lg:mt-[80px] mb-10' data-aos="fade-up" data-aos-easing="ease-in-out">
             <div className='portfolio-header text-center lg:text-left mb-14'>
-              <h1 className='opacity-50 font-semibold tracking-[.5em] text-lg' >SELECTED PROJECTS</h1>
-              <h1 className='font-bold text-3xl lg:text-[40px]'>THESE ARE MY FAVOURITE PROJECTS</h1>
+              <h2 className='opacity-50 font-semibold tracking-[.5em] text-lg' >SELECTED PROJECTS</h2>
+              <h2 className='font-bold text-3xl lg:text-[40px]'>THESE ARE MY FAVOURITE PROJECTS</h2>
             </div>
             <MainContent />
           </div>

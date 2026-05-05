@@ -25,17 +25,17 @@ export default function Footer() {
             <div className='footer-content w-full border-t-4 py-8 items-center font-bold text-lg flex flex-col md:flex-row md:justify-between '>
                 <div className='left-content flex gap-x-14 justify-center'>
                     <div className='location flex flex-col gap-y-2'>
-                        <h1 className='opacity-50 font-semibold'>Location</h1>
-                        <h2>Indonesia</h2>
+                        <p className='opacity-50 font-semibold'>Location</p>
+                        <p className='font-bold text-lg'>Indonesia</p>
                     </div>
                     <div className='local-time flex flex-col gap-y-2'>
-                        <h1 className='opacity-50 font-semibold'>Local Time</h1>
-                        <h2>{currentTime}</h2>
+                        <p className='opacity-50 font-semibold'>Local Time</p>
+                        <p className='font-bold text-lg'>{currentTime}</p>
                     </div>
                 </div>
 
                 <div className='right-content flex flex-col justify-center text-center mt-8 md:mt-0 gap-y-2 items-center'>
-                    <h1 className='opacity-50 font-semibold'>Let&apos;s Connect</h1>
+                    <p className='opacity-50 font-semibold'>Let&apos;s Connect</p>
 
                     <div className='flex justify-center gap-x-5'>
                         <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>

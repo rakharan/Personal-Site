@@ -6,8 +6,8 @@ export default function Navbar() {
                 <nav className='px-5 md:px-14'>
                     <div className='h-[114px]  flex justify-between gap-x-5'>
                         <div className='left-navbar  flex items-center'>
-                            <Link href="/">
-                                <h1 className='text-2xl md:text-5xl'>R<span className='font-bold'>.</span></h1>
+                            <Link href="/" className='text-2xl md:text-5xl'>
+                                R<span className='font-bold'>.</span>
                             </Link>
                         </div>
                         <div className='right-navbar  flex items-center'>

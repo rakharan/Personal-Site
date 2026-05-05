@@ -73,7 +73,7 @@ export default function MainContent() {
                                         <h1 className='font-bold text-2xl lg:text-4xl'>{project.title}</h1>
                                         <p className='text-base md:text-xl lg:text-2xl'>{project.desc}</p>
                                         <div className='tech-stack flex justify-center gap-x-2 mt-5 gap-y-2 items-center flex-wrap'>
-                                            {project.techStacks.map((stack, index) => {
+                                            {project.techStacks.map((stack) => {
                                                 return (
                                                     <span key={stack} className='bg-black p-2 text-white text-xs rounded-md md:text-base'>{stack}</span>
                                                 )
