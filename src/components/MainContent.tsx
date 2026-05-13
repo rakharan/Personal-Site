@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image'
 import { useState } from 'react'
-import landtick from "@/assets/projects/landtick.webp"
+import { AiOutlineGithub } from 'react-icons/ai'
+import topupstore from "@/assets/projects/topupstore.png"
 import waysbeans from "@/assets/projects/waysbeans.webp"
 import tokopaedi from "@/assets/projects/tokopaedi.webp"
 import Link from 'next/link'
@@ -11,6 +12,7 @@ interface ProjectList {
     img: StaticImageData;
     desc: string;
     href: string;
+    github: string;
     techStacks: Array<string>
 }
 
@@ -20,22 +22,25 @@ const projectList: Array<ProjectList> = [
         img: waysbeans,
         year: 2023,
         href: 'https://waysbeans-teal.vercel.app',
+        github: 'https://github.com/rakharan/Waysbeans',
         desc: 'An online coffee shop for coffee addicts all around the world.',
         techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
     },
     {
-        title: 'LandTick',
-        img: landtick,
-        year: 2023,
-        href: 'https://final-task-pi.vercel.app/',
-        desc: 'An online railway ticket booking application.',
-        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
+        title: 'TopUp Store',
+        img: topupstore,
+        year: 2026,
+        href: 'https://sagameda.com',
+        github: 'https://github.com/rakharan/topup-store',
+        desc: 'Game top-up platform with WhatsApp ordering, QRIS payments, and instant digital delivery.',
+        techStacks: ['Go', 'PostgreSQL', 'Redis', 'Docker', 'Tailwind CSS']
     },
     {
         title: 'Tokopaedi',
         img: tokopaedi,
         year: 2024,
         href: 'https://github.com/RakhaTF/Tokopaedi',
+        github: 'https://github.com/rakharan/Tokopaedi',
         desc: 'An E-commerce API integrated with midtrans and rajaongkir.',
         techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'Typescript']
     },
@@ -70,7 +75,12 @@ export default function MainContent() {
                                 </div>
                                 <div className='overlay-content flex justify-center items-center w-full h-full'>
                                     <div className={`project-detail flex flex-col justify-center items-center text-center lg:gap-y-4 ${isHovered ? `hidden` : ``}`}>
-                                        <h1 className='font-bold text-2xl lg:text-4xl'>{project.title}</h1>
+                                        <div className='flex items-center gap-x-2'>
+                                            <h1 className='font-bold text-2xl lg:text-4xl'>{project.title}</h1>
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub repository for ${project.title}`} onClick={(e) => e.stopPropagation()} className='text-black hover:text-gray-600 transition-colors'>
+                                                <AiOutlineGithub className='w-6 h-6 lg:w-8 lg:h-8' />
+                                            </a>
+                                        </div>
                                         <p className='text-base md:text-xl lg:text-2xl'>{project.desc}</p>
                                         <div className='tech-stack flex justify-center gap-x-2 mt-5 gap-y-2 items-center flex-wrap'>
                                             {project.techStacks.map((stack) => {
