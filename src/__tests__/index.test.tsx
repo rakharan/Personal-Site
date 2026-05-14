@@ -10,9 +10,9 @@ describe('Home page', () => {
 
   it('renders social media section', () => {
     render(<Home />)
-    expect(screen.getByRole('link', { name: /instagram/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /linkedin/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /instagram/i }).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByRole('link', { name: /linkedin/i }).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByRole('link', { name: /github/i }).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders portfolio section header', () => {

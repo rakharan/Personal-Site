@@ -12,16 +12,61 @@ interface Photo {
   alt: string
 }
 
-const photos: Photo[] = [
-  { src: 'https://picsum.photos/seed/photo1/800/600', width: 800, height: 600, alt: 'Photo 1' },
-  { src: 'https://picsum.photos/seed/photo2/600/800', width: 600, height: 800, alt: 'Photo 2' },
-  { src: 'https://picsum.photos/seed/photo3/800/500', width: 800, height: 500, alt: 'Photo 3' },
-  { src: 'https://picsum.photos/seed/photo4/700/900', width: 700, height: 900, alt: 'Photo 4' },
-  { src: 'https://picsum.photos/seed/photo5/900/600', width: 900, height: 600, alt: 'Photo 5' },
-  { src: 'https://picsum.photos/seed/photo6/600/700', width: 600, height: 700, alt: 'Photo 6' },
-  { src: 'https://picsum.photos/seed/photo7/800/800', width: 800, height: 800, alt: 'Photo 7' },
-  { src: 'https://picsum.photos/seed/photo8/700/500', width: 700, height: 500, alt: 'Photo 8' },
-  { src: 'https://picsum.photos/seed/photo9/500/700', width: 500, height: 700, alt: 'Photo 9' },
+export const photos: Photo[] = [
+  {
+    src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
+    width: 1200,
+    height: 800,
+    alt: 'Quiet lakeside cabin surrounded by trees',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
+    width: 900,
+    height: 1200,
+    alt: 'Mountain valley with a river under soft daylight',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
+    width: 1200,
+    height: 800,
+    alt: 'Starry night sky over a snowy mountain ridge',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80',
+    width: 900,
+    height: 1200,
+    alt: 'Forest trail with warm sunlight through the trees',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=80',
+    width: 1200,
+    height: 800,
+    alt: 'Still lake reflecting a mountain landscape',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80',
+    width: 900,
+    height: 1200,
+    alt: 'Winding road through a wide desert landscape',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80',
+    width: 1200,
+    height: 800,
+    alt: 'Tall trees forming a green forest canopy',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80',
+    width: 1200,
+    height: 800,
+    alt: 'Green hills under a dramatic cloudy sky',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+    width: 900,
+    height: 1200,
+    alt: 'Ocean shoreline with turquoise water and pale sand',
+  },
 ]
 
 export default function Photography() {

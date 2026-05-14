@@ -1,5 +1,4 @@
 import Image, { StaticImageData } from 'next/image'
-import { useState } from 'react'
 import { AiOutlineGithub } from 'react-icons/ai'
 import topupstore from "@/assets/projects/topupstore.png"
 import waysbeans from "@/assets/projects/waysbeans.webp"
@@ -46,57 +45,51 @@ const projectList: Array<ProjectList> = [
     },
 ]
 export default function MainContent() {
-
-    const [hoveredProjectIndex, setHoveredProjectIndex] = useState(-1);
-
-    const handleMouseEnter = (index: number) => {
-        setHoveredProjectIndex(index);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredProjectIndex(-1);
-    };
-
     return (
         <div className='grid gap-4 grid-cols-1 md:grid-cols-2'>
-            {projectList.map((project, index) => {
-                const isHovered = hoveredProjectIndex === index;
+            {projectList.map((project) => {
                 return (
-                    <div key={project.title} className=' shadow-2xl relative rounded-xl overflow-hidden cursor-pointer md:h-[22vw] h-[220px]' onMouseEnter={() => {
-                        handleMouseEnter(index);
-                    }}
-                        onMouseLeave={() => {
-                            handleMouseLeave();
-                        }}>
-                            <Link href={project.href} target="_blank" rel="noopener noreferrer">
-                            <div className={`overlay absolute  w-full h-full p-4 ${isHovered ? `bg-transparent` : `bg-white/70`} transition-all duration-500`}>
-                                <div className='project-year absolute'>
-                                    <span className={`text-base md:text-xl font-semibold ${isHovered ? `bg-black p-2 text-white rounded-md` : `bg-white p-2 text-black rounded-md`}`}>{project.year}</span>
-                                </div>
-                                <div className='overlay-content flex justify-center items-center w-full h-full'>
-                                    <div className={`project-detail flex flex-col justify-center items-center text-center lg:gap-y-4 ${isHovered ? `hidden` : ``}`}>
-                                        <div className='flex items-center gap-x-2'>
-                                            <h1 className='font-bold text-2xl lg:text-4xl'>{project.title}</h1>
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub repository for ${project.title}`} onClick={(e) => e.stopPropagation()} className='text-black hover:text-gray-600 transition-colors'>
-                                                <AiOutlineGithub className='w-6 h-6 lg:w-8 lg:h-8' />
-                                            </a>
-                                        </div>
-                                        <p className='text-base md:text-xl lg:text-2xl'>{project.desc}</p>
-                                        <div className='tech-stack flex justify-center gap-x-2 mt-5 gap-y-2 items-center flex-wrap'>
-                                            {project.techStacks.map((stack) => {
-                                                return (
-                                                    <span key={stack} className='bg-black p-2 text-white text-xs rounded-md md:text-base'>{stack}</span>
-                                                )
-                                            })}
-                                        </div>
+                    <article key={project.title} className='group shadow-2xl relative rounded-xl overflow-hidden md:h-[22vw] h-[260px] bg-black'>
+                        <Link
+                            href={project.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className='block h-full focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-500 focus-visible:outline-offset-4'
+                            aria-label={`Open ${project.title} project`}
+                        >
+                            <Image
+                                placeholder='blur'
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                src={project.img}
+                                alt={`${project.title} project preview`}
+                                className='object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105'
+                            />
+                            <div className='absolute inset-0 bg-white/80 p-4 transition-colors duration-300 group-hover:bg-white/70 group-focus-visible:bg-white/70'>
+                                <span className='absolute left-4 top-4 bg-black p-2 text-white text-base md:text-xl font-semibold rounded-md'>{project.year}</span>
+                                <div className='flex h-full flex-col items-center justify-center text-center gap-y-3 px-2 pt-10'>
+                                    <h3 className='font-bold text-2xl lg:text-4xl'>{project.title}</h3>
+                                    <p className='text-base md:text-xl lg:text-2xl'>{project.desc}</p>
+                                    <div className='tech-stack flex justify-center gap-x-2 mt-2 gap-y-2 items-center flex-wrap'>
+                                        {project.techStacks.map((stack) => {
+                                            return (
+                                                <span key={stack} className='bg-black p-2 text-white text-xs rounded-md md:text-base'>{stack}</span>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <Image placeholder='blur' width={1200} height={500} sizes="(max-width: 768px) 100vw, 50vw" src={project.img} alt={project.title}/>
-                            </div>
                         </Link>
-                    </div>
+                        <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`GitHub repository for ${project.title}`}
+                            className='absolute right-4 top-4 z-10 rounded-full bg-white p-2 text-black transition-colors hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-500'
+                        >
+                            <AiOutlineGithub className='w-6 h-6 lg:w-8 lg:h-8' />
+                        </a>
+                    </article>
                 )
             })}
         </div>

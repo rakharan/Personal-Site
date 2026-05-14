@@ -49,4 +49,10 @@ describe('MainContent', () => {
       expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     })
   })
+
+  it('renders separate project and repository links', () => {
+    const { container } = render(<MainContent />)
+    expect(screen.getByRole('link', { name: /open waysbeans project/i })).toHaveAttribute('href', 'https://waysbeans-teal.vercel.app')
+    expect(container.querySelector('a a')).not.toBeInTheDocument()
+  })
 })

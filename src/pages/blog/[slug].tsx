@@ -22,7 +22,7 @@ export default function PostPage({ post }: PostPageProps) {
           <div className='text-center'>
             <h1 className='text-4xl font-bold mb-4'>Post Not Found</h1>
             <Link href='/blog' className='text-blue-600 hover:underline'>
-              ← Back to blog
+              &lt;- Back to blog
             </Link>
           </div>
         </main>
@@ -34,7 +34,7 @@ export default function PostPage({ post }: PostPageProps) {
     <Layout title={`${post.title} | Rakha Randhikatama`}>
       <main className='min-h-screen px-[30px] lg:px-[10vw] py-10 max-w-3xl mx-auto'>
         <Link href='/blog' className='text-sm opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block'>
-          ← Back to blog
+          &lt;- Back to blog
         </Link>
         <article data-aos="fade-up">
           <time className='text-sm opacity-50'>{post.date}</time>

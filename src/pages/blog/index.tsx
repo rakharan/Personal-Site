@@ -33,7 +33,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                   <h2 className='font-bold text-xl mb-2 group-hover:underline'>{post.title}</h2>
                   <p className='opacity-70 flex-grow'>{post.description}</p>
                   <span className='mt-4 text-sm font-semibold opacity-50 group-hover:opacity-100 transition-opacity'>
-                    Read more →
+                    Read more -&gt;
                   </span>
                 </article>
               </Link>

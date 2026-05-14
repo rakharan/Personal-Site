@@ -8,7 +8,7 @@ export default function Resume() {
                 <main className='min-h-screen'>
                     <div className='flex justify-center mt-[75px] '>
                         <div className='flex justify-center w-[919px]'>
-                            <Image src={CV} alt='cv' />
+                            <Image src={CV} alt='Rakha Randhikatama resume preview' />
                         </div>
                     </div>
                     <div className='flex justify-center mb-[50px] '>

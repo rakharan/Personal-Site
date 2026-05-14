@@ -12,7 +12,8 @@ export default function Footer() {
                 hour: 'numeric',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: false
+                hour12: false,
+                timeZone: 'Asia/Jakarta'
             }).format(new Date()));
         };
         updateTime();
@@ -38,13 +39,13 @@ export default function Footer() {
                     <p className='opacity-50 font-semibold'>Let&apos;s Connect</p>
 
                     <div className='flex justify-center gap-x-5'>
-                        <Link href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                        <Link aria-label="Rakha's LinkedIn" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                             <RxLinkedinLogo size={`1.5em`} />
                         </Link>
-                        <Link href="https://github.com/rakharan" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                        <Link aria-label="Rakha's GitHub" href="https://github.com/rakharan" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                             <AiOutlineGithub size={`1.5em`} />
                         </Link>
-                        <Link href="https://www.instagram.com/rakharan/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
+                        <Link aria-label="Rakha's Instagram" href="https://www.instagram.com/rakharan/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
                             <RxInstagramLogo size={`1.5em`} />
                         </Link>
                     </div>

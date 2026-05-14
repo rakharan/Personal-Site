@@ -38,7 +38,7 @@ const Home = () => {
               </div>
               <div className='short-brief w-[300px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
                 <p className={`${myFont.className} text-base leading-[26px] text-center italic md:text-xl font-black`}>
-                  Hello there 👋 <br />
+                  Hello there! <br />
                   I am a Back-End developer <br />
                   amateur photographer and a stargazer <br />
                   Two years building and maintaining backend systems  

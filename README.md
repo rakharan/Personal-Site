@@ -1,4 +1,4 @@
-# Personal Site — Rakha Randhikatama
+# Personal Site - Rakha Randhikatama
 
 Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. Showcases selected projects, resume, and photography work.
 
@@ -40,8 +40,8 @@ The static output is exported to `out/` and deployed via FTP.
 
 ```
 src/
-├── components/     # Reusable UI components
-├── pages/          # Next.js pages (routes)
-├── styles/         # Global CSS
-└── assets/         # Static assets (images, fonts)
+|-- components/     # Reusable UI components
+|-- pages/          # Next.js pages (routes)
+|-- styles/         # Global CSS
+`-- assets/         # Static assets (images, fonts)
 ```

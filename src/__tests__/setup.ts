@@ -30,6 +30,18 @@ vi.mock('next/head', () => ({
   },
 }))
 
+vi.mock('next/router', () => ({
+  useRouter: () => ({
+    pathname: '/',
+    route: '/',
+    asPath: '/',
+    query: {},
+    push: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+  }),
+}))
+
 vi.mock('next/document', () => ({
   Html: function MockHtml({ children }: { children: React.ReactNode }) {
     return React.createElement('div', { 'data-testid': 'mock-html' }, children)
