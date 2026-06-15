@@ -1,5 +1,7 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
+import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllPosts, PostMeta } from '@/lib/blog'
 
 interface BlogIndexProps {
@@ -9,6 +11,13 @@ interface BlogIndexProps {
 export default function BlogIndex({ posts }: BlogIndexProps) {
   return (
     <Layout title='Blog | Rakha Randhikatama'>
+      <Head>
+        <meta name="description" content="Blog posts by Rakha Randhikatama on backend development, Go, and DevOps." />
+        <meta property="og:title" content="Blog | Rakha Randhikatama" />
+        <meta property="og:description" content="Blog posts by Rakha Randhikatama on backend development, Go, and DevOps." />
+        <meta property="og:url" content="https://sagameda.com/blog" />
+        <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
+      </Head>
       <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <div className='mb-14 text-center lg:text-left' data-aos="fade-up">
           <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>WRITINGS</p>
@@ -26,15 +35,32 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 href={`/blog/${post.slug}`}
                 className='block group'
                 data-aos="fade-up"
-                data-aos-delay={i * 100}
+                data-aos-delay={String(i * 100)}
               >
-                <article className='border rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 h-full flex flex-col'>
-                  <time className='text-sm opacity-50 mb-2'>{post.date}</time>
-                  <h2 className='font-bold text-xl mb-2 group-hover:underline'>{post.title}</h2>
-                  <p className='opacity-70 flex-grow'>{post.description}</p>
-                  <span className='mt-4 text-sm font-semibold opacity-50 group-hover:opacity-100 transition-opacity'>
-                    Read more -&gt;
-                  </span>
+                <article className='border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col'>
+                  {post.coverImage ? (
+                    <div className='relative w-full h-48'>
+                      <Image
+                        src={post.coverImage}
+                        alt={`Cover image for ${post.title}`}
+                        fill
+                        className='object-cover'
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </div>
+                  ) : (
+                    <div className='w-full h-48 bg-gradient-to-br from-black/10 to-black/5 flex items-center justify-center'>
+                      <span className='text-4xl opacity-20 font-bold tracking-widest'>BLOG</span>
+                    </div>
+                  )}
+                  <div className='p-6 flex flex-col flex-grow'>
+                    <time className='text-sm opacity-50 mb-2'>{post.date}</time>
+                    <h2 className='font-bold text-xl mb-2 group-hover:underline'>{post.title}</h2>
+                    <p className='opacity-70 flex-grow'>{post.description}</p>
+                    <span className='mt-4 text-sm font-semibold opacity-50 group-hover:opacity-100 transition-opacity'>
+                      Read more -&gt;
+                    </span>
+                  </div>
                 </article>
               </Link>
             ))}

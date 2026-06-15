@@ -14,8 +14,8 @@ describe('Photography page', () => {
   })
 
   it('uses curated image sources with descriptive alt text', () => {
-    expect(photos.some((photo) => photo.alt.includes('Starry night sky'))).toBe(true)
     expect(photos.every((photo) => !photo.src.includes('picsum.photos'))).toBe(true)
     expect(photos.every((photo) => !/^Photo \d+$/.test(photo.alt))).toBe(true)
+    expect(photos.every((photo) => photo.alt.length > 10)).toBe(true)
   })
 })

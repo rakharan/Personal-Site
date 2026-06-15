@@ -1,0 +1,81 @@
+---
+title: "Building a Game Top-Up Store with Go, QRIS, and WhatsApp"
+date: "2026-05-20"
+description: "How I built a production game top-up platform from scratch — WhatsApp ordering, QRIS payments, Redis queues, and Docker deployments."
+---
+
+When I started building [TopUp Store](https://sagameda.com), I wanted it to be more than a side project. I wanted it to feel like a real product — one that handles real payments, real orders, and real users. Here's how I put it together.
+
+## The Stack
+
+The backend is written in Go, backed by PostgreSQL for persistent storage and Redis for order queuing and caching. Everything runs inside Docker containers, and the frontend is server-rendered HTML with Tailwind CSS — no SPA overhead.
+
+```
+Go (chi router)
+PostgreSQL (orders, products, users)
+Redis (order queue, session cache)
+Docker + Docker Compose
+Nginx (reverse proxy)
+```
+
+## WhatsApp as an Order Channel
+
+Most game top-up platforms in Indonesia rely on WhatsApp for communication. Rather than fight this, I leaned into it. When a user places an order, the system generates a pre-filled WhatsApp message with order details and routes them directly to the operator's number.
+
+```go
+func generateWhatsAppURL(phone, orderID, productName string) string {
+    msg := fmt.Sprintf(
+        "Halo, saya ingin melakukan top-up.\n\nOrder ID: %s\nProduk: %s",
+        orderID, productName,
+    )
+    encoded := url.QueryEscape(msg)
+    return fmt.Sprintf("https://wa.me/%s?text=%s", phone, encoded)
+}
+```
+
+Simple, but it works. No webhook integrations to maintain, no API costs.
+
+## QRIS Payments
+
+QRIS (Quick Response Code Indonesian Standard) is the unified QR payment standard used by all Indonesian e-wallets — GoPay, OVO, Dana, and bank apps all scan the same code. I integrated with a payment gateway that issues dynamic QRIS codes per transaction.
+
+The flow:
+1. User selects product and submits order
+2. Backend creates order in PostgreSQL and requests a QRIS code from the payment provider
+3. User scans code in their e-wallet app
+4. Payment gateway POSTs a webhook to confirm payment
+5. Backend marks the order as paid and moves it to the delivery queue in Redis
+
+The trickiest part was making the webhook handler idempotent — payment gateways sometimes send duplicate notifications. A simple `ON CONFLICT DO NOTHING` in the order status update query handles this cleanly.
+
+## Redis for Order Queuing
+
+Paid orders go into a Redis list. A background worker pops from the list and processes delivery — calling the game provider API to actually credit the in-game currency.
+
+```go
+func (w *Worker) processQueue(ctx context.Context) {
+    for {
+        result, err := w.redis.BLPop(ctx, 5*time.Second, "orders:paid").Result()
+        if err == redis.Nil {
+            continue // timeout, no orders
+        }
+        if err != nil {
+            log.Printf("queue error: %v", err)
+            continue
+        }
+        w.handleOrder(ctx, result[1])
+    }
+}
+```
+
+`BLPop` with a timeout keeps the worker alive without busy-looping.
+
+## Lessons Learned
+
+**Keep the deployment simple.** A single `docker-compose up -d` starts everything — PostgreSQL, Redis, the Go app, and Nginx. No Kubernetes overhead for a project this size.
+
+**QRIS is genuinely good UX.** Users already have e-wallet apps installed. The payment step takes under 10 seconds.
+
+**Go's `database/sql` is enough.** I resisted the urge to add an ORM. Raw queries with `sqlx` are readable, fast, and easy to debug.
+
+The full source is on [GitHub](https://github.com/rakharan/topup-store).

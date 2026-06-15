@@ -1,8 +1,16 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { getAllPostSlugs, getPostBySlug } from '@/lib/blog'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import remarkGfm from 'remark-gfm'
+
+function getReadingTime(text: string): string {
+  const wordsPerMinute = 200
+  const words = text.trim().split(/\s+/).length
+  const minutes = Math.ceil(words / wordsPerMinute)
+  return `${minutes} min read`
+}
 
 interface PostPageProps {
   post: {
@@ -11,6 +19,7 @@ interface PostPageProps {
     date: string
     description: string
     content: string
+    readingTime: string
   } | null
 }
 
@@ -37,7 +46,11 @@ export default function PostPage({ post }: PostPageProps) {
           &lt;- Back to blog
         </Link>
         <article data-aos="fade-up">
-          <time className='text-sm opacity-50'>{post.date}</time>
+          <div className='flex items-center gap-x-3 text-sm opacity-50 mb-2'>
+            <time>{post.date}</time>
+            <span>·</span>
+            <span>{post.readingTime}</span>
+          </div>
           <h1 className='font-bold text-4xl lg:text-5xl mt-2 mb-4'>{post.title}</h1>
           <p className='text-lg opacity-70 mb-8'>{post.description}</p>
           <div className='prose prose-lg max-w-none'>
@@ -64,13 +77,20 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     return { props: { post: null } }
   }
 
-  const mdxSource = await serialize(post.content)
+  const mdxSource = await serialize(post.content, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+    },
+  })
+
+  const readingTime = getReadingTime(post.content)
 
   return {
     props: {
       post: {
         ...post,
         content: JSON.stringify(mdxSource),
+        readingTime,
       },
     },
   }

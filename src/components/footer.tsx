@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import { RxInstagramLogo, RxLinkedinLogo } from "react-icons/rx";
-import { AiOutlineGithub } from "react-icons/ai";
-import Link from 'next/link';
+import SocialLinks from './SocialLinks'
 
 export default function Footer() {
     const [currentTime, setCurrentTime] = useState('');
@@ -31,24 +29,13 @@ export default function Footer() {
                     </div>
                     <div className='local-time flex flex-col gap-y-2'>
                         <p className='opacity-50 font-semibold'>Local Time</p>
-                        <p className='font-bold text-lg'>{currentTime}</p>
+                        <p className='font-bold text-lg' suppressHydrationWarning>{currentTime}</p>
                     </div>
                 </div>
 
                 <div className='right-content flex flex-col justify-center text-center mt-8 md:mt-0 gap-y-2 items-center'>
                     <p className='opacity-50 font-semibold'>Let&apos;s Connect</p>
-
-                    <div className='flex justify-center gap-x-5'>
-                        <Link aria-label="Rakha's LinkedIn" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                            <RxLinkedinLogo size={`1.5em`} />
-                        </Link>
-                        <Link aria-label="Rakha's GitHub" href="https://github.com/rakharan" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                            <AiOutlineGithub size={`1.5em`} />
-                        </Link>
-                        <Link aria-label="Rakha's Instagram" href="https://www.instagram.com/rakharan/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-[3px] transition-all duration-200'>
-                            <RxInstagramLogo size={`1.5em`} />
-                        </Link>
-                    </div>
+                    <SocialLinks links={['linkedin', 'github', 'instagram']} />
                 </div>
             </div>
         </footer>

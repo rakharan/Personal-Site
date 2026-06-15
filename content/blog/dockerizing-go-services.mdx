@@ -1,0 +1,135 @@
+---
+title: "How I Dockerize Go Services for Production"
+date: "2026-04-10"
+description: "A practical walkthrough of the Dockerfile setup, multi-stage builds, and Docker Compose configuration I use for Go backend services."
+---
+
+After doing DevOps work across a few projects, I've settled on a consistent pattern for containerizing Go services. This is the setup I actually use in production — not a tutorial hello-world, but the real thing.
+
+## The Dockerfile
+
+Go is a great fit for Docker because it compiles to a single static binary. The key is a multi-stage build that keeps the final image small.
+
+```dockerfile
+# Stage 1: build
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /app
+
+# Cache dependencies separately from source
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o server ./cmd/server
+
+# Stage 2: run
+FROM alpine:3.19
+
+RUN apk --no-cache add ca-certificates tzdata
+
+WORKDIR /app
+COPY --from=builder /app/server .
+
+# Don't run as root
+RUN addgroup -S app && adduser -S app -G app
+USER app
+
+EXPOSE 8080
+CMD ["./server"]
+```
+
+A few things worth noting:
+
+- `CGO_ENABLED=0` produces a fully static binary with no libc dependency
+- `-ldflags="-s -w"` strips debug info and reduces binary size by ~30%
+- `ca-certificates` is needed for outbound HTTPS calls
+- `tzdata` is needed if your code uses `time.LoadLocation`
+- Running as a non-root user is a basic security hygiene step
+
+The final image is usually around 20-30 MB.
+
+## Docker Compose for Local Development
+
+For local development, I use a `docker-compose.yml` that wires up the app with its dependencies.
+
+```yaml
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=postgres://user:pass@db:5432/appdb?sslmode=disable
+      - REDIS_URL=redis://cache:6379
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: appdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d appdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  cache:
+    image: redis:7-alpine
+    volumes:
+      - redisdata:/data
+
+volumes:
+  pgdata:
+  redisdata:
+```
+
+The `healthcheck` on the database is important. Without it, the app container starts before PostgreSQL is ready to accept connections, and you get a confusing connection refused error on startup.
+
+## Environment Variables
+
+I never bake secrets into the image. All configuration comes from environment variables injected at runtime. For production, I use a `.env` file on the server that Docker Compose reads automatically — it's excluded from version control.
+
+```bash
+# .env (on server, never committed)
+DATABASE_URL=postgres://user:strongpassword@db:5432/appdb?sslmode=disable
+REDIS_URL=redis://cache:6379
+PAYMENT_API_KEY=...
+```
+
+For local development, a `.env.example` file in the repo documents all required variables without real values.
+
+## Deploying
+
+My deployment script is intentionally minimal:
+
+```bash
+#!/bin/bash
+set -e
+
+git pull origin main
+docker compose build app
+docker compose up -d --no-deps app
+docker image prune -f
+```
+
+`--no-deps` restarts only the app container without touching the database or Redis. `image prune` keeps the server from filling up with old layers over time.
+
+## What I'd Change at Scale
+
+For a larger team or higher traffic, I'd look at:
+
+- A proper secrets manager (Vault, AWS Secrets Manager) instead of `.env` files
+- Health check endpoints the load balancer can probe
+- Structured JSON logging so logs are parseable by whatever aggregator you use
+
+But for a single-server deployment with moderate traffic, this setup is simple, fast to iterate on, and easy to debug. That matters more than premature infrastructure complexity.

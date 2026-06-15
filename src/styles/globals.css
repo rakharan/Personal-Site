@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
     background:
         linear-gradient(-90deg, rgba(0, 0, 0, .05) 1px, transparent 1px),
@@ -28,6 +23,25 @@ body {
         80px 80px,
         80px 80px,
         80px 80px;
+}
+
+/* Native scroll animations (replaces AOS library) */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(30px);
+}
+
+[data-aos="fade-in"] {
+    transform: none;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: none;
 }
 
 .react-photo-album img {

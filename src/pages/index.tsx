@@ -1,12 +1,8 @@
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import Head from 'next/head'
-import localFont from 'next/font/local'
-import { RxInstagramLogo, RxLinkedinLogo, RxEnvelopeClosed, } from "react-icons/rx";
-import { AiOutlineMedium, AiOutlineGithub } from "react-icons/ai";
-import Link from 'next/link'
+import SocialLinks from '@/components/SocialLinks'
 import dynamic from 'next/dynamic'
 
-const myFont = localFont({ src: './Avenir-Regular.woff2' })
 const MainContent = dynamic(() => import('../components/MainContent'))
 const Home = () => {
   return (
@@ -37,41 +33,15 @@ const Home = () => {
                 </h1>
               </div>
               <div className='short-brief w-[300px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
-                <p className={`${myFont.className} text-base leading-[26px] text-center italic md:text-xl font-black`}>
+                <p className='text-base leading-[26px] text-center italic md:text-xl font-black'>
                   Hello there! <br />
-                  I am a Back-End developer <br />
-                  amateur photographer and a stargazer <br />
-                  Two years building and maintaining backend systems  
-                  now also handling parts of DevOps and infrastructure work
+                  I am a Back-End developer, <br />
+                  amateur photographer, and a stargazer. <br />
+                  Two years building and maintaining backend systems, <br />
+                  now also handling DevOps and infrastructure.
                 </p>
               </div>
-              <div className='social-media flex gap-x-9'>
-                <div>
-                  <Link aria-label="Rakha's instagram" href="https://www.instagram.com/rakharan/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
-                    <RxInstagramLogo size={`1.5em`} />
-                  </Link>
-                </div>
-                <div>
-                  <Link aria-label="Rakha's linkedin" href="https://www.linkedin.com/in/rakha-randhikatama/" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
-                    <RxLinkedinLogo size={`1.5em`} />
-                  </Link>
-                </div>
-                <div>
-                  <Link aria-label="Rakha's email" href="mailto:randhikatamar@gmail.com" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
-                    <RxEnvelopeClosed size={`1.5em`} />
-                  </Link>
-                </div>
-                <div>
-                  <Link aria-label="Rakha's medium" href="https://medium.com/@randhikatamar" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
-                    <AiOutlineMedium size={`1.5em`} />
-                  </Link>
-                </div>
-                <div>
-                  <Link aria-label="Rakha's github" href="https://github.com/rakharan" target="_blank" rel="noopener noreferrer" className=' hover:bg-blue-300 rounded-full flex justify-center items-center p-1 transition-all duration-200'>
-                    <AiOutlineGithub size={`1.5em`} />
-                  </Link>
-                </div>
-              </div>
+              <SocialLinks />
             </div>
           </div>
           <div className='portfolio-section min-h-screen w-full px-[30px] lg:px-[10vw] mt-[60px] lg:mt-[80px] mb-10' data-aos="fade-up" data-aos-easing="ease-in-out">
