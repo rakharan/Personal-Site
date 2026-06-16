@@ -26,8 +26,7 @@ export default function Photography() {
           <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>GALLERY</p>
           <h1 className='font-bold text-3xl lg:text-[40px]'>PHOTOGRAPHY</h1>
         </div>
-        <div data-aos="fade-up" data-aos-delay="200">
-          <PhotoAlbum
+        <PhotoAlbum
             photos={photos}
             layout="masonry"
             columns={(containerWidth) => {
@@ -38,7 +37,6 @@ export default function Photography() {
             spacing={12}
             onClick={({ index }) => setIndex(index)}
           />
-        </div>
         <Lightbox
           index={index}
           slides={photos.map(p => ({ src: p.src, alt: p.alt, width: p.width, height: p.height }))}
