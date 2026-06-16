@@ -26,17 +26,20 @@ export default function Photography() {
           <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>GALLERY</p>
           <h1 className='font-bold text-3xl lg:text-[40px]'>PHOTOGRAPHY</h1>
         </div>
-        <PhotoAlbum
+        <div data-aos="fade-up" data-aos-delay="200">
+          <PhotoAlbum
             photos={photos}
             layout="masonry"
             columns={(containerWidth) => {
-              if (containerWidth < 480) return 1
-              if (containerWidth < 900) return 2
+              if (containerWidth < 640) return 1
+              if (containerWidth < 1024) return 2
               return 3
             }}
-            spacing={12}
+            spacing={16}
             onClick={({ index }) => setIndex(index)}
+
           />
+        </div>
         <Lightbox
           index={index}
           slides={photos.map(p => ({ src: p.src, alt: p.alt, width: p.width, height: p.height }))}
