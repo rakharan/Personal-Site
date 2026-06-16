@@ -41,7 +41,7 @@ export default function PostPage({ post }: PostPageProps) {
 
   return (
     <Layout title={`${post.title} | Rakha Randhikatama`}>
-      <main className='min-h-screen px-[30px] lg:px-[10vw] py-10 max-w-3xl mx-auto'>
+      <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <Link href='/blog' className='text-sm opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block'>
           &lt;- Back to blog
         </Link>
