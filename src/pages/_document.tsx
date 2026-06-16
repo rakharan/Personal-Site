@@ -13,6 +13,8 @@ const gridStyle = {
     'linear-gradient(#aaa 1px, transparent 1px)',
   ].join(', '),
   backgroundSize: '4px 4px, 4px 4px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px, 80px 80px',
+  backgroundAttachment: 'fixed',
+  minHeight: '100vh',
 }
 
 export default function Document() {
