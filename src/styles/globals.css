@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    body {
+    html {
         background:
             linear-gradient(-90deg, rgba(0, 0, 0, .05) 1px, transparent 1px),
             linear-gradient(rgba(0, 0, 0, .05) 1px, transparent 1px),
@@ -23,6 +23,12 @@
             80px 80px,
             80px 80px,
             80px 80px;
+        min-height: 100%;
+    }
+
+    body {
+        background: transparent;
+        min-height: 100%;
     }
 }
 
