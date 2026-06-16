@@ -10,6 +10,14 @@ export interface PostMeta {
   date: string
   description: string
   coverImage?: string
+  readingTime: string
+}
+
+function getReadingTime(text: string): string {
+  const wordsPerMinute = 200
+  const words = text.trim().split(/\s+/).length
+  const minutes = Math.ceil(words / wordsPerMinute)
+  return `${minutes} min read`
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -21,13 +29,14 @@ export function getAllPosts(): PostMeta[] {
     const slug = filename.replace('.mdx', '')
     const filePath = path.join(blogDirectory, filename)
     const fileContents = fs.readFileSync(filePath, 'utf8')
-    const { data } = matter(fileContents)
+    const { data, content } = matter(fileContents)
 
     return {
       slug,
       title: data.title || slug,
       date: data.date || '',
       description: data.description || '',
+      readingTime: getReadingTime(content),
       ...(data.coverImage && { coverImage: data.coverImage }),
     } as PostMeta
   })

@@ -11,12 +11,14 @@ export default function Navbar() {
         { href: '/resume', label: 'RESUME', active: pathname === '/resume' },
     ]
 
+    const homeActive = pathname === '/'
+
     return (
         <header>
                 <nav className='px-5 md:px-14'>
                     <div className='h-[114px]  flex justify-between gap-x-5'>
                         <div className='left-navbar  flex items-center'>
-                            <Link href="/" className='text-2xl md:text-5xl'>
+                            <Link href="/" className={`text-2xl md:text-5xl border-t-4 transition-all duration-300 leading-[50px] ${homeActive ? 'border-black' : 'border-transparent hover:border-black'}`}>
                                 R<span className='font-bold'>.</span>
                             </Link>
                         </div>

@@ -37,7 +37,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 data-aos="fade-up"
                 data-aos-delay={String(i * 100)}
               >
-                <article className='border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col'>
+                <article className='border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col group-hover:scale-[1.02]'>
                   {post.coverImage ? (
                     <div className='relative w-full h-48'>
                       <Image
@@ -54,7 +54,11 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     </div>
                   )}
                   <div className='p-6 flex flex-col flex-grow'>
-                    <time className='text-sm opacity-50 mb-2'>{post.date}</time>
+                    <div className='flex items-center gap-x-2 text-sm opacity-50 mb-2'>
+                      <time>{post.date}</time>
+                      <span>·</span>
+                      <span>{post.readingTime}</span>
+                    </div>
                     <h2 className='font-bold text-xl mb-2 group-hover:underline'>{post.title}</h2>
                     <p className='opacity-70 flex-grow'>{post.description}</p>
                     <span className='mt-4 text-sm font-semibold opacity-50 group-hover:opacity-100 transition-opacity'>

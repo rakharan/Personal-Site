@@ -36,6 +36,12 @@ export default function Footer() {
                 <div className='right-content flex flex-col justify-center text-center mt-8 md:mt-0 gap-y-2 items-center'>
                     <p className='opacity-50 font-semibold'>Let&apos;s Connect</p>
                     <SocialLinks links={['linkedin', 'github', 'instagram']} />
+                    <a
+                        href='mailto:randhikatamar@gmail.com'
+                        className='text-sm opacity-50 hover:opacity-100 transition-opacity mt-1'
+                    >
+                        randhikatamar@gmail.com
+                    </a>
                 </div>
             </div>
         </footer>
