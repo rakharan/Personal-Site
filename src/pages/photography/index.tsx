@@ -31,13 +31,12 @@ export default function Photography() {
             photos={photos}
             layout="masonry"
             columns={(containerWidth) => {
-              if (containerWidth < 640) return 1
-              if (containerWidth < 1024) return 2
+              if (containerWidth < 480) return 1
+              if (containerWidth < 900) return 2
               return 3
             }}
-            spacing={16}
+            spacing={12}
             onClick={({ index }) => setIndex(index)}
-
           />
         </div>
         <Lightbox
