@@ -11,7 +11,7 @@ interface HomeProps {
   latestPosts: PostMeta[]
 }
 
-const Home = ({ latestPosts }: HomeProps) => {
+const Home = ({ latestPosts = [] }: HomeProps) => {
   return (
     <Layout title='Home | Rakha Randhikatama'>
         <Head>

@@ -19,12 +19,13 @@ export function useScrollAnimations() {
       el.classList.remove('aos-animate')
     })
 
-    // Small delay to let the new page's DOM settle before observing
+    let observer: IntersectionObserver | null = null
+
     const setup = setTimeout(() => {
       const elements = document.querySelectorAll('[data-aos]')
       if (elements.length === 0) return
 
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -35,18 +36,19 @@ export function useScrollAnimations() {
               } else {
                 el.classList.add('aos-animate')
               }
-              observer.unobserve(el)
+              observer!.unobserve(el)
             }
           })
         },
         { threshold: 0.1 }
       )
 
-      elements.forEach((el) => observer.observe(el))
-
-      return () => observer.disconnect()
+      elements.forEach((el) => observer!.observe(el))
     }, 50)
 
-    return () => clearTimeout(setup)
+    return () => {
+      clearTimeout(setup)
+      observer?.disconnect()
+    }
   }, [pathname])
 }

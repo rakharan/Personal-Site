@@ -8,9 +8,9 @@ const myFont = localFont({ src: '../assets/fonts/pala.ttf' })
 export default function App({ Component, pageProps }: AppProps) {
   useScrollAnimations()
   return (
-    <main className={myFont.className}>
+    <div className={myFont.className}>
       <Component {...pageProps} />
       <Analytics />
-    </main >
+    </div>
   )
 }

@@ -19,7 +19,7 @@ export default function Resume() {
                     </div>
                     <div className='flex justify-center mt-4'>
                         <div className='flex justify-center w-full max-w-[919px] px-4'>
-                            <Image src={CV} alt='Rakha Randhikatama resume preview - Back-end developer with experience in Go, TypeScript, Docker, and cloud infrastructure' />
+                            <Image src={CV} alt='Rakha Randhikatama resume preview - Back-end developer with experience in Go, TypeScript, Docker, and cloud infrastructure' className='w-full h-auto' />
                         </div>
                     </div>
                     <div className='flex justify-center mb-[50px] '>
