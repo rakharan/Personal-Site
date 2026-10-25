@@ -47,6 +47,7 @@ export default function Photography() {
         <meta property="og:image" content={heroSrc} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={heroSrc} />
+        <link rel="canonical" href="https://sagameda.com/photography" />
       </Head>
 
       <main className='min-h-screen'>

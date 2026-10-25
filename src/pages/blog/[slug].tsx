@@ -68,6 +68,12 @@ export default function PostPage({ post, prevPost, nextPost }: PostPageProps) {
         {post.coverImage && <meta property='og:image' content={post.coverImage} />}
         <meta property='og:title' content={`${post.title} | Rakha Randhikatama`} />
         <meta property='og:description' content={post.description} />
+        <meta name="description" content={post.description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | Rakha Randhikatama`} />
+        <meta name="twitter:description" content={post.description} />
+        {post.coverImage && <meta name="twitter:image" content={post.coverImage} />}
+        <link rel="canonical" href={`https://sagameda.com/blog/${post.slug}`} />
       </Head>
       <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <Link href='/blog' className='text-sm opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block'>

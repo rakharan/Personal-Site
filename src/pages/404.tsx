@@ -1,9 +1,14 @@
 import Layout from '@/components/Layout'
+import Head from 'next/head'
 import Link from 'next/link'
 
 export default function NotFound() {
   return (
     <Layout title='404 — Page Not Found | Rakha Randhikatama'>
+      <Head>
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href="https://sagameda.com" />
+      </Head>
       <main className='min-h-screen flex items-center justify-center px-[30px]'>
         <div className='text-center' data-aos='fade-up'>
           <p className='text-8xl font-bold opacity-10 mb-4'>404</p>

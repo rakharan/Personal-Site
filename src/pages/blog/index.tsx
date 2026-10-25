@@ -17,6 +17,13 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <meta property="og:description" content="Blog posts by Rakha Randhikatama on backend development, Go, and DevOps." />
         <meta property="og:url" content="https://sagameda.com/blog" />
         <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="sagameda.com" />
+        <meta property="twitter:url" content="https://sagameda.com/blog" />
+        <meta name="twitter:title" content="Blog | Rakha Randhikatama" />
+        <meta name="twitter:description" content="Blog posts by Rakha Randhikatama on backend development, Go, and DevOps." />
+        <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
+        <link rel="canonical" href="https://sagameda.com/blog" />
       </Head>
       <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <div className='mb-14 text-center lg:text-left' data-aos="fade-up">

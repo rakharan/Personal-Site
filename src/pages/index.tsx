@@ -27,21 +27,21 @@ const Home = ({ latestPosts = [] }: HomeProps) => {
           <meta name="twitter:title" content="Home | Rakha Randhikatama" />
           <meta name="twitter:description" content="Personal site of Rakha Randhikatama — back-end developer, DevOps engineer, amateur photographer, and stargazer." />
           <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
+          <link rel="canonical" href="https://sagameda.com" />
         </Head>
         <main className='min-h-screen'>
-          <div className='mb-[80px] md:mb-[120px]' data-aos="fade-in" data-aos-easing="ease-in-out">
+          <div className='mb-12 md:mb-16' data-aos="fade-in" data-aos-easing="ease-in-out">
             <div className='introduction flex flex-col justify-center items-center'>
-              <div className='name flex justify-center items-center mt-[74px] md:text-[58px] md:leading-[75px] text-4xl'>
+              <div className='name flex justify-center items-center mt-8 md:mt-12 md:text-[58px] md:leading-[75px] text-4xl text-center'>
                 <h1>Rakha
                   <br /> Randhikatama
                 </h1>
               </div>
-              <div className='short-brief w-[300px] md:w-[400px] flex justify-center mt-11 mb-[66px] px-4'>
-                <p className='text-base leading-[26px] text-center italic md:text-xl font-black'>
-                  Hello there! <br />
-                  I am a Back-End developer, <br />
-                  amateur photographer, and a stargazer. <br />
-                  Two years building and maintaining backend systems, <br />
+              <div className='short-brief max-w-xl mx-auto flex justify-center mt-6 mb-6 px-4'>
+                <p className='text-base md:text-lg leading-relaxed text-center font-normal text-neutral-700'>
+                  Hello there!
+                  I am a Back-End developer, amateur photographer, and a stargazer.
+                  Two years building and maintaining backend systems,
                   now also handling DevOps and infrastructure.
                 </p>
               </div>
@@ -50,7 +50,7 @@ const Home = ({ latestPosts = [] }: HomeProps) => {
           </div>
 
           {/* Projects section */}
-          <div className='portfolio-section min-h-screen w-full px-[30px] lg:px-[10vw] mt-[60px] lg:mt-[80px] mb-10' data-aos="fade-up" data-aos-easing="ease-in-out">
+          <div className='portfolio-section w-full px-[30px] lg:px-[10vw] mt-12 lg:mt-16 mb-10' data-aos="fade-up" data-aos-easing="ease-in-out">
             <div className='portfolio-header text-center lg:text-left mb-14'>
               <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>SELECTED PROJECTS</p>
               <h2 className='font-bold text-3xl lg:text-[40px]'>THESE ARE MY FAVOURITE PROJECTS</h2>
