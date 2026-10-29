@@ -20,14 +20,28 @@ export default function MainContent() {
                             aria-label={`Open ${project.title} project`}
                         >
                             <div className='relative w-full aspect-[16/9] overflow-hidden bg-neutral-100 border-b border-neutral-200/60'>
-                                <Image
-                                    placeholder='blur'
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                    src={project.img}
-                                    alt={`${project.title} project preview`}
-                                    className='object-cover object-top transition-transform duration-300 group-hover:scale-105'
-                                />
+                                {project.img ? (
+                                    <Image
+                                        placeholder='blur'
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        src={project.img}
+                                        alt={`${project.title} project preview`}
+                                        className='object-cover object-top transition-transform duration-300 group-hover:scale-105'
+                                    />
+                                ) : (
+                                    /* ponytail: fallback cover until screenshots added. replace with real image in src/data/projects.ts */
+                                    <div className='w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 flex items-center justify-center transition-transform duration-300 group-hover:scale-105'>
+                                        <div className='flex flex-col items-center gap-1 opacity-80'>
+                                            <span className='font-mono text-2xl font-bold tracking-tight text-white/90'>
+                                                {project.title.split(' ').map(w => w[0]).join('').slice(0, 3)}
+                                            </span>
+                                            <span className='font-mono text-[10px] tracking-widest uppercase text-neutral-400'>
+                                                {project.techStacks[0]}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
                                 <span className='absolute left-3 top-3 bg-black/80 backdrop-blur-sm px-2.5 py-0.5 text-white font-mono text-xs font-medium rounded shadow-sm'>
                                     {project.year}
                                 </span>

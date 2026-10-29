@@ -6,7 +6,7 @@ import tokopaedi from "@/assets/projects/tokopaedi.webp"
 export interface Project {
     title: string;
     year: number;
-    img: StaticImageData;
+    img?: StaticImageData;
     desc: string;
     href: string;
     github: string;
@@ -15,13 +15,12 @@ export interface Project {
 
 export const projectList: Array<Project> = [
     {
-        title: 'Waysbeans',
-        img: waysbeans,
-        year: 2023,
-        href: 'https://waysbeans-teal.vercel.app',
-        github: 'https://github.com/rakharan/Waysbeans',
-        desc: 'An online coffee shop for coffee addicts all around the world.',
-        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
+        title: 'Local Codebase AI',
+        year: 2026,
+        href: 'https://github.com/rakharan/local-codebase-ai',
+        github: 'https://github.com/rakharan/local-codebase-ai',
+        desc: 'Local-first RAG engine with hybrid search, neural reranker, self-learning loop, and MCP server.',
+        techStacks: ['TypeScript', 'Qdrant', 'Ollama', 'Express', 'MCP']
     },
     {
         title: 'TopUp Store',
@@ -33,12 +32,29 @@ export const projectList: Array<Project> = [
         techStacks: ['Go', 'PostgreSQL', 'Redis', 'Docker', 'Tailwind CSS']
     },
     {
+        title: 'Tokopaedi Microservices',
+        year: 2025,
+        href: 'https://github.com/rakharan/tokopaedi-microservices',
+        github: 'https://github.com/rakharan/tokopaedi-microservices',
+        desc: 'Event-driven e-commerce split into 7 microservices with API gateway and async message brokers.',
+        techStacks: ['TypeScript', 'RabbitMQ', 'Redis', 'Docker', 'pnpm']
+    },
+    {
         title: 'Tokopaedi',
         img: tokopaedi,
         year: 2024,
-        href: 'https://github.com/RakhaTF/Tokopaedi',
+        href: 'https://github.com/rakharan/Tokopaedi',
         github: 'https://github.com/rakharan/Tokopaedi',
         desc: 'An E-commerce API integrated with midtrans and rajaongkir.',
-        techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'Typescript']
+        techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'TypeScript']
+    },
+    {
+        title: 'Waysbeans',
+        img: waysbeans,
+        year: 2023,
+        href: 'https://waysbeans-teal.vercel.app',
+        github: 'https://github.com/rakharan/Waysbeans',
+        desc: 'An online coffee shop for coffee addicts all around the world.',
+        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
     },
 ]
