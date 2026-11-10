@@ -2,6 +2,8 @@ import { StaticImageData } from 'next/image'
 import topupstore from "@/assets/projects/topupstore.webp"
 import waysbeans from "@/assets/projects/waysbeans.webp"
 import tokopaedi from "@/assets/projects/tokopaedi.webp"
+import localCodebaseAi from "@/assets/projects/local-codebase-ai.webp"
+import tokopaediMicroservices from "@/assets/projects/tokopaedi-microservices.webp"
 
 export interface Project {
     title: string;
@@ -16,6 +18,7 @@ export interface Project {
 export const projectList: Array<Project> = [
     {
         title: 'Local Codebase AI',
+        img: localCodebaseAi,
         year: 2026,
         href: 'https://github.com/rakharan/local-codebase-ai',
         github: 'https://github.com/rakharan/local-codebase-ai',
@@ -26,13 +29,14 @@ export const projectList: Array<Project> = [
         title: 'TopUp Store',
         img: topupstore,
         year: 2026,
-        href: 'https://sagameda.com',
+        href: 'https://github.com/rakharan/topup-store',
         github: 'https://github.com/rakharan/topup-store',
-        desc: 'Game top-up platform with WhatsApp ordering, QRIS payments, and instant digital delivery.',
-        techStacks: ['Go', 'PostgreSQL', 'Redis', 'Docker', 'Tailwind CSS']
+        desc: 'Game top-up platform with WhatsApp notifications, QRIS payments, and instant digital delivery.',
+        techStacks: ['Go', 'PostgreSQL', 'Redis', 'Docker', 'Tailwind CSS', 'Node.js', 'Midtrans']
     },
     {
         title: 'Tokopaedi Microservices',
+        img: tokopaediMicroservices,
         year: 2025,
         href: 'https://github.com/rakharan/tokopaedi-microservices',
         github: 'https://github.com/rakharan/tokopaedi-microservices',
@@ -46,7 +50,7 @@ export const projectList: Array<Project> = [
         href: 'https://github.com/rakharan/Tokopaedi',
         github: 'https://github.com/rakharan/Tokopaedi',
         desc: 'An E-commerce API integrated with midtrans and rajaongkir.',
-        techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'TypeScript']
+        techStacks: ['Fastify', 'MySQL', 'Docker', 'TypeOrm', 'TypeScript', 'Redis', 'Midtrans', 'RajaOngkir']
     },
     {
         title: 'Waysbeans',
@@ -55,6 +59,6 @@ export const projectList: Array<Project> = [
         href: 'https://waysbeans-teal.vercel.app',
         github: 'https://github.com/rakharan/Waysbeans',
         desc: 'An online coffee shop for coffee addicts all around the world.',
-        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL']
+        techStacks: ['React JS', 'Tailwind CSS', 'Go', 'PostgreSQL', 'Echo', 'GORM', 'Midtrans']
     },
 ]
