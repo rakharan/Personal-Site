@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPostSlugs, getPostBySlug, getAllPosts } from '@/lib/blog'
+import { slugifyTag } from '@/lib/tags'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkGfm from 'remark-gfm'
@@ -17,6 +18,7 @@ interface PostPageProps {
     content: string
     readingTime: string
     coverImage?: string
+    tags: string[]
   } | null
   prevPost: { slug: string; title: string } | null
   nextPost: { slug: string; title: string } | null
@@ -50,7 +52,7 @@ export default function PostPage({ post, prevPost, nextPost }: PostPageProps) {
   if (!post) {
     return (
       <Layout title='Post Not Found | Rakha Randhikatama'>
-        <main className='min-h-screen flex items-center justify-center'>
+        <main id='main' className='min-h-screen flex items-center justify-center'>
           <div className='text-center'>
             <h1 className='text-4xl font-bold mb-4'>Post Not Found</h1>
             <Link href='/blog' className='text-blue-600 hover:underline'>
@@ -68,14 +70,43 @@ export default function PostPage({ post, prevPost, nextPost }: PostPageProps) {
         {post.coverImage && <meta property='og:image' content={post.coverImage} />}
         <meta property='og:title' content={`${post.title} | Rakha Randhikatama`} />
         <meta property='og:description' content={post.description} />
+        <meta property='og:type' content='article' />
+        <meta property='og:site_name' content='Rakha Randhikatama' />
+        <meta property='og:url' content={`https://sagameda.com/blog/${post.slug}`} />
+        <meta property='article:published_time' content={post.date} />
+        <meta property='article:author' content='Rakha Randhikatama' />
         <meta name="description" content={post.description} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Rakha Randhikatama`} />
         <meta name="twitter:description" content={post.description} />
         {post.coverImage && <meta name="twitter:image" content={post.coverImage} />}
         <link rel="canonical" href={`https://sagameda.com/blog/${post.slug}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.description,
+              datePublished: post.date,
+              url: `https://sagameda.com/blog/${post.slug}`,
+              ...(post.coverImage && { image: post.coverImage }),
+              author: {
+                '@type': 'Person',
+                name: 'Rakha Randhikatama',
+                url: 'https://sagameda.com',
+              },
+              publisher: {
+                '@type': 'Person',
+                name: 'Rakha Randhikatama',
+                url: 'https://sagameda.com',
+              },
+            }),
+          }}
+        />
       </Head>
-      <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
+      <main id='main' className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <Link href='/blog' className='text-sm opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block'>
           &lt;- Back to blog
         </Link>
@@ -98,7 +129,20 @@ export default function PostPage({ post, prevPost, nextPost }: PostPageProps) {
             <span>{post.readingTime}</span>
           </div>
           <h1 className='font-bold text-4xl lg:text-5xl mt-2 mb-4'>{post.title}</h1>
-          <p className='text-lg opacity-70 mb-8'>{post.description}</p>
+          <p className='text-lg opacity-70 mb-6'>{post.description}</p>
+          {post.tags.length > 0 && (
+            <nav aria-label='Post tags' className='mb-8 flex flex-wrap gap-2'>
+              {post.tags.map(tag => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${slugifyTag(tag)}`}
+                  className='bg-neutral-100 text-neutral-700 font-mono border border-neutral-200 px-2.5 py-0.5 text-xs rounded hover:bg-neutral-200 transition-colors'
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </nav>
+          )}
           <div className='prose prose-lg max-w-none'>
             <MDXRemote {...JSON.parse(post.content)} />
           </div>

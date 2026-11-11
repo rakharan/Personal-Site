@@ -9,7 +9,7 @@ export default function NotFound() {
         <meta name="robots" content="noindex" />
         <link rel="canonical" href="https://sagameda.com" />
       </Head>
-      <main className='min-h-screen flex items-center justify-center px-[30px]'>
+      <main id='main' className='min-h-screen flex items-center justify-center px-[30px]'>
         <div className='text-center' data-aos='fade-up'>
           <p className='text-8xl font-bold opacity-10 mb-4'>404</p>
           <h1 className='text-3xl font-bold mb-4'>Page not found</h1>

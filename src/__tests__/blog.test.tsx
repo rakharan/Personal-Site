@@ -9,6 +9,7 @@ const mockPost = {
   description: 'A test post description.',
   content: JSON.stringify({ compiledSource: '', frontmatter: {}, scope: {} }),
   readingTime: '2 min read',
+  tags: ['Go'],
 }
 
 describe('BlogIndex page', () => {

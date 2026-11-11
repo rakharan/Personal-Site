@@ -2,13 +2,15 @@ import Layout from '@/components/Layout'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts, PostMeta } from '@/lib/blog'
+import { getAllPosts, getAllTags, PostMeta } from '@/lib/blog'
+import { slugifyTag } from '@/lib/tags'
 
 interface BlogIndexProps {
   posts: PostMeta[]
+  tags: string[]
 }
 
-export default function BlogIndex({ posts }: BlogIndexProps) {
+export default function BlogIndex({ posts, tags = [] }: BlogIndexProps) {
   return (
     <Layout title='Blog | Rakha Randhikatama'>
       <Head>
@@ -16,6 +18,8 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <meta property="og:title" content="Blog | Rakha Randhikatama" />
         <meta property="og:description" content="Blog posts by Rakha Randhikatama on backend development, Go, and DevOps." />
         <meta property="og:url" content="https://sagameda.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Rakha Randhikatama" />
         <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="sagameda.com" />
@@ -25,11 +29,24 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
         <link rel="canonical" href="https://sagameda.com/blog" />
       </Head>
-      <main className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
+      <main id='main' className='min-h-screen px-[30px] lg:px-[10vw] py-10'>
         <div className='mb-14 text-center lg:text-left' data-aos="fade-up">
           <p className='opacity-50 font-semibold tracking-[.5em] text-lg'>WRITINGS</p>
           <h1 className='font-bold text-3xl lg:text-[40px]'>BLOG</h1>
         </div>
+        {tags.length > 0 && (
+          <nav aria-label='Post tags' className='mb-10 flex flex-wrap gap-2 justify-center lg:justify-start'>
+            {tags.map(tag => (
+              <Link
+                key={tag}
+                href={`/blog/tag/${slugifyTag(tag)}`}
+                className='bg-neutral-100 text-neutral-700 font-mono border border-neutral-200 px-3 py-1 text-sm rounded hover:bg-neutral-200 transition-colors'
+              >
+                #{tag}
+              </Link>
+            ))}
+          </nav>
+        )}
         {posts.length === 0 ? (
           <div className='text-center py-20' data-aos="fade-up">
             <p className='text-xl opacity-60'>No posts yet. Check back soon!</p>
@@ -84,5 +101,6 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
 
 export async function getStaticProps() {
   const posts = getAllPosts()
-  return { props: { posts } }
+  const tags = getAllTags()
+  return { props: { posts, tags } }
 }

@@ -1,6 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { slugifyTag } from './tags'
+
+export { slugifyTag }
 
 const blogDirectory = path.join(process.cwd(), 'content', 'blog')
 
@@ -11,6 +14,7 @@ export interface PostMeta {
   description: string
   coverImage?: string
   readingTime: string
+  tags: string[]
 }
 
 function getReadingTime(text: string): string {
@@ -18,6 +22,10 @@ function getReadingTime(text: string): string {
   const words = text.trim().split(/\s+/).length
   const minutes = Math.ceil(words / wordsPerMinute)
   return `${minutes} min read`
+}
+
+function normalizeTags(tags: unknown): string[] {
+  return Array.isArray(tags) ? tags.filter((t): t is string => typeof t === 'string') : []
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -37,6 +45,7 @@ export function getAllPosts(): PostMeta[] {
       date: data.date || '',
       description: data.description || '',
       readingTime: getReadingTime(content),
+      tags: normalizeTags(data.tags),
       ...(data.coverImage && { coverImage: data.coverImage }),
     } as PostMeta
   })
@@ -58,6 +67,7 @@ export function getPostBySlug(slug: string) {
     date: data.date || '',
     description: data.description || '',
     content,
+    tags: normalizeTags(data.tags),
     ...(data.coverImage && { coverImage: data.coverImage }),
   }
 }
@@ -68,4 +78,15 @@ export function getAllPostSlugs(): string[] {
   return fs.readdirSync(blogDirectory)
     .filter(f => f.endsWith('.mdx'))
     .map(f => f.replace('.mdx', ''))
+}
+
+export function getAllTags(): string[] {
+  return Array.from(new Set(getAllPosts().flatMap(post => post.tags))).sort()
+}
+
+export function getPostsByTag(tag: string): PostMeta[] {
+  const normalized = tag.toLowerCase()
+  return getAllPosts().filter(post =>
+    post.tags.some(t => t.toLowerCase() === normalized || slugifyTag(t) === normalized)
+  )
 }

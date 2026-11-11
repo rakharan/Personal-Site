@@ -44,13 +44,17 @@ export default function Photography() {
         <meta property="og:title" content="Photography | Rakha Randhikatama" />
         <meta property="og:description" content="Photography gallery by Rakha Randhikatama — landscapes, astrophotography, and street scenes across Indonesia." />
         <meta property="og:url" content="https://sagameda.com/photography" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Rakha Randhikatama" />
         <meta property="og:image" content={heroSrc} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Photography | Rakha Randhikatama" />
+        <meta name="twitter:description" content="Photography gallery by Rakha Randhikatama — landscapes, astrophotography, and street scenes across Indonesia." />
         <meta name="twitter:image" content={heroSrc} />
         <link rel="canonical" href="https://sagameda.com/photography" />
       </Head>
 
-      <main className='min-h-screen'>
+      <main id='main' className='min-h-screen'>
         {/* Hero — featured stargazing shot */}
         <section
           className='relative w-full h-[60vh] min-h-[400px] overflow-hidden flex items-end cursor-pointer'

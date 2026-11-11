@@ -57,12 +57,6 @@ vi.mock('next/document', () => ({
   },
 }))
 
-vi.mock('aos', () => ({
-  default: {
-    init: vi.fn(),
-  },
-}))
-
 vi.mock('next-mdx-remote', () => ({
   MDXRemote: function MockMDXRemote() {
     return React.createElement('div', { 'data-testid': 'mock-mdx-remote' })

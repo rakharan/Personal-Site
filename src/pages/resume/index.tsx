@@ -11,6 +11,8 @@ export default function Resume() {
                     <meta property="og:title" content="Resume | Rakha Randhikatama" />
                     <meta property="og:description" content="Resume of Rakha Randhikatama, back-end developer" />
                     <meta property="og:url" content="https://sagameda.com/resume" />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:site_name" content="Rakha Randhikatama" />
                     <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Resume | Rakha Randhikatama" />
@@ -18,7 +20,7 @@ export default function Resume() {
                 <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
                 <link rel="canonical" href="https://sagameda.com/resume" />
                 </Head>
-                <main className='min-h-screen'>
+                <main id='main' className='min-h-screen'>
                     <div className='px-4 md:px-10 lg:px-20 py-10'>
                         <h1 className='font-bold text-3xl lg:text-[40px] text-center mb-8'>Resume</h1>
                     </div>

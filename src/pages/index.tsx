@@ -19,6 +19,7 @@ const Home = ({ latestPosts = [] }: HomeProps) => {
           <meta name="description" content="Personal site of Rakha Randhikatama — back-end developer, DevOps engineer, amateur photographer, and stargazer." />
           <meta property="og:url" content="https://sagameda.com" />
           <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Rakha Randhikatama" />
           <meta property="og:description" content="Personal site of Rakha Randhikatama — back-end developer, DevOps engineer, amateur photographer, and stargazer." />
           <meta property="og:image" content="https://sagameda.com/thumbnail.webp" />
           <meta name="twitter:card" content="summary_large_image" />
@@ -28,8 +29,27 @@ const Home = ({ latestPosts = [] }: HomeProps) => {
           <meta name="twitter:description" content="Personal site of Rakha Randhikatama — back-end developer, DevOps engineer, amateur photographer, and stargazer." />
           <meta name="twitter:image" content="https://sagameda.com/thumbnail.webp" />
           <link rel="canonical" href="https://sagameda.com" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                name: 'Rakha Randhikatama',
+                url: 'https://sagameda.com',
+                email: 'randhikatamar@gmail.com',
+                jobTitle: 'Back-End Developer & DevOps Engineer',
+                sameAs: [
+                  'https://github.com/rakharan',
+                  'https://www.linkedin.com/in/rakha-randhikatama/',
+                  'https://www.instagram.com/rakharan/',
+                  'https://medium.com/@randhikatamar',
+                ],
+              }),
+            }}
+          />
         </Head>
-        <main className='min-h-screen'>
+        <main id='main' className='min-h-screen'>
           <div className='mb-12 md:mb-16' data-aos="fade-in" data-aos-easing="ease-in-out">
             <div className='introduction flex flex-col justify-center items-center'>
               <div className='name flex justify-center items-center mt-8 md:mt-12 md:text-[58px] md:leading-[75px] text-4xl text-center'>
