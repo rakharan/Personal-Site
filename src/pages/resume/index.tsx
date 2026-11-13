@@ -26,11 +26,11 @@ export default function Resume() {
                     </div>
                     <div className='flex justify-center mt-4'>
                         <div className='flex justify-center w-full max-w-[919px] px-4'>
-                            <Image src={CV} alt='Rakha Randhikatama resume preview - Back-end developer with experience in Go, TypeScript, Docker, and cloud infrastructure' className='w-full h-auto' />
+                            <Image src={CV} alt='Rakha Randhikatama resume — Backend engineer · 3+ yrs · Go, Node.js/TypeScript, Docker, RabbitMQ · open to relocate (DACH/Nordics/Singapore)' className='w-full h-auto' />
                         </div>
                     </div>
                     <div className='flex justify-center mb-[50px] '>
-                        <Link href="https://www.cake.me/pdf/s--W1_u4iQFTH3vK0PAaUcZsQ--/oDE015.pdf" target='_blank' rel="noopener noreferrer">
+                        <Link href="/resume.pdf" target='_blank' rel="noopener noreferrer">
                             <span className='text-white bg-black border-2 border-black p-2 px-4 rounded-full hover:text-black hover:bg-white hover:border-black transition-all duration-500 antialiased text-lg'>
                                 Download Resume
                             </span>

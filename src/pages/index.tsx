@@ -60,8 +60,8 @@ const Home = ({ latestPosts = [] }: HomeProps) => {
               <div className='short-brief max-w-xl mx-auto flex justify-center mt-6 mb-6 px-4'>
                 <p className='text-base md:text-lg leading-relaxed text-center font-normal text-neutral-700'>
                   Hello there!
-                  I am a Back-End developer, amateur photographer, and a stargazer.
-                  Two years building and maintaining backend systems,
+                  I am a Back-End engineer, amateur photographer, and a stargazer.
+                  Three years building and maintaining backend systems,
                   now also handling DevOps and infrastructure.
                 </p>
               </div>
